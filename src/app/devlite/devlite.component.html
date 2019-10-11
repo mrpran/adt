@@ -1,0 +1,976 @@
+<div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom d-none">
+          <!-- Right navbar links -->
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+          <!-- Brand Logo -->
+          <a href="index3.html" class="brand-link">
+            <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">DMP</span>
+          </a>
+          <!-- Sidebar -->
+          <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+              <div class="image">
+                <img height="160px" width="160px" src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
+                  class="img-circle elevation-2" alt="User Image">
+              </div>
+              <div class="info">
+                <a href="#" class="d-block">User</a>
+              </div>
+            </div>
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+              <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+                <li class="nav-item has-treeview menu-open">
+                  <a href="#" class="nav-link active ">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                      Generator
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview d-none">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link active">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Active Page</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Inactive Page</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                      Admin
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="devlite" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                      DevLite - DMP integration
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-sign-out-alt"></i>
+                    <p>
+                      Sign out
+                    </p>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+          </div>
+          <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <div class="content-header">
+            <div class="container-fluid">
+              <div class="row mb-2">
+                <div class="col-sm-6">
+                  <h1 class="m-0 text-dark">Application Development Toolkit</h1>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+          </div>
+          <div class="content">
+            <div class="container-fluid">
+              <!-- /.card-header -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div id="accordion">
+                    <!-- we are adding the .class so bootstrap.js collapse plugin detects it -->
+                    <div class="card card-secondary">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <i class="fa fa-user mr-2"></i>
+                          <a data-toggle="collapse" aria-expanded="true" href="#collapseOne" aria-controls="collapseOne">
+                            CONFIGURE APPLICATION PARAMETERS
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class=" collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                          <form #typeForm="ngForm">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="exampleInpu tEmail1">Application Type</label>
+                                  <select name="appType1" [(ngModel)]="appType1" class="form-control">
+                                    <option value="fullStack">Full Stack</option>
+                                    <option value="microservice">Microservice application</option>
+                                    <option value="dbAsService">Database As Service</option>
+                                    <option value="netflix">Netflix OSS Ecommerce Stack Template</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+      
+                          <div class="row">
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Application Name</label>
+                                <input #appName type="text" class="form-control" placeholder="appName">
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Default Java package</label>
+                                <input #defaultPackage type="text" class="form-control" placeholder="defaultPackage">
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Type of Authentication</label>
+                                <select #authType1 class="form-control">
+                                  <option value="">Select</option>
+                                  <option value="Session-based">Session-based</option>
+                                  <option value="OAuth 2.0">OAuth 2.0</option>
+                                  <option value="JSON Web Token (JWT)">JSON Web Token (JWT)</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-3  ">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Default Server Port</label>
+                                <input #defaultPort type="number" class="form-control" placeholder="8080">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Messaging API</label>
+                                <select #messagingAPI1 class="form-control">
+                                  <option value="">Select</option>
+                                  <option value="Kafka">Kafka</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-3" *ngIf="appType1 == 'microservice'">
+                              <div class="form-group">
+                                <label>Service Discovery</label>
+                                <select class="form-control">
+                                  <option value="">Select</option>
+                                  <option>Eureka</option>
+                                  <option>Consul</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Include Code-Gen Dependencies</label>
+                                <select class="form-control">
+                                  <option value="">Select</option>
+                                  <option>Yes</option>
+                                  <option>No</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+      
+                          <br>
+                          <hr>
+      
+                          <div *ngIf="appType1 == 'fullStack'">
+                            <h5>UI Configuration</h5>
+                            <br>
+                            <form #uiForm="ngForm">
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label>UI Framework for client</label>
+                                    <select name="uiFramework1" [(ngModel)]="uiFramework1" class="form-control">
+                                      <option value="">Select</option>
+                                      <option value="Angular">Angular</option>
+                                      <option value="React">React</option>
+                                    </select>
+                                  </div>
+      
+      
+      
+                                  <!-- /.form-group -->
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label>Multi-Language Support</label>
+                                    <select class="form-control">
+                                      <option value="">Select</option>
+                                      <option>Yes</option>
+                                      <option>No</option>
+                                    </select>
+                                  </div>
+                                  <!-- /.form-group -->
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group">
+                                    <label>Select languages</label>
+                                    <select class="form-control">
+                                      <option value="">Select</option>
+                                      <option>Danish</option>
+                                      <option>French</option>
+                                      <option>German</option>
+                                      <option>Spanish</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <!-- /.col -->
+                                <div class="col-md-4">
+                                  <div class=" form-group">
+                                    <label>Would you like to use the LibSass stylesheet preprocessor for your CSS?</label>
+                                    <select class="form-control">
+                                      <option value="">Select</option>
+                                      <option>Yes</option>
+                                      <option>No</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <!-- /.form-group -->
+                              </div>
+                            </form>
+      
+      
+                            <br>
+                            <hr>
+                          </div>
+      
+      
+      
+                          <h5>Database Configuration</h5>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Type of Database</label>
+                                <select class="form-control">
+                                  <option value="">Select</option>
+                                  <option>SQL database</option>
+                                  <option>MongoDB</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label>Enable Liquibase Configuration</label>
+                                <select class="form-control">
+                                  <option value="">Select</option>
+                                  <option>Yes</option>
+                                  <option>No</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Development database</label>
+                                <select class="form-control">
+                                  <option value="">Select</option>
+                                  <option>MySQL</option>
+                                  <option>H2, running in-mmory</option>
+                                  <option>H2, with its data stored on disk</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label>Production database</label>
+                                <select class="form-control">
+                                  <option value="">Select</option>
+                                  <option>MySQL</option>
+                                  <option>Oracle</option>
+                                  <option>PostgreSQL</option>
+                                  <option>MSSQL</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Search Engine</label>
+                                <select class="form-control">
+                                  <option value="">Select</option>
+                                  <option>ElasticSearch</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <br>
+                          <hr>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <h5>Testing Options</h5>
+                              <br>
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <div class="form-group">
+                                    <label>Besides JUnit and Karma, which testing frameworks would you like to use?</label>
+                                    <select class="form-control">
+                                      <option value="">Select</option>
+                                      <option>Gatling</option>
+                                      <option>Cucumber</option>
+                                      <option>Protractor</option>
+                                    </select>
+                                  </div>
+                                  <!-- /.form-group -->
+                                </div>
+                                <!-- /.form-group -->
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <h5>Build</h5>
+                              <br>
+                              <div class="row">
+                                <div class="col-md-8">
+                                  <div class="form-group">
+                                    <label>Type of Build Tool</label>
+                                    <select class="form-control">
+                                      <option value="">Select</option>
+                                      <option>Maven</option>
+                                      <option>Gradle</option>
+                                    </select>
+                                  </div>
+                                  <!-- /.form-group -->
+                                </div>
+                                <!-- /.form-group -->
+                              </div>
+                            </div>
+                          </div>
+                          <a class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false"
+                            aria-controls="collapseTwo" onclick="sc()">Next
+                            <i class="ml-2 fas fa-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-secondary">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fa fa-tasks mr-2"></i> ENTITY DESIGNER
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                          <form #myForm="ngForm">
+                            <div class="text-center">
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions" checked id="inlineRadio1" value="radioOption1">
+                                <label class="form-check-label" for="inlineRadio1">Create Entities</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions" id="inlineRadio2" value="radioOption2">
+                                <label class="form-check-label" for="inlineRadio2">Import from DB</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions" id="inlineRadio3" value="radioOption3">
+                                <label class="form-check-label" for="inlineRadio2">Import from WSDL</label>
+                              </div>
+                            </div>
+                          </form>
+                          <br>
+                          <hr>
+                          <div *ngIf="RadioOptions == 'radioOption1'">
+                            <h5>Define Entities</h5>
+                            <br>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Entity Name</label>
+                                  <input #entityTableName type="email" class="form-control" placeholder="Enter entity name">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Field Name</label>
+                                  <input #fieldName type="text" class="form-control" placeholder="Enter field name">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Data Type</label>
+                                  <select #fieldType class="form-control">
+                                    <option value="String">String</option>
+                                    <option value="Long">Long</option>
+                                    <option value="Integer">Integer</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <label class="">&nbsp;</label>
+                                <button (click)="add(fieldName.value,fieldType.value) ; fieldName.value='';fieldType.value='String'" type="button" class="btn btn-block bg-gradient-success w-25">
+                                  <i class="fas fa-plus"></i>
+                                </button>
+                              </div>
+                            </div>
+                            <div class="row ">
+                              <div class="col-md-12">
+                                <div class="card">
+                                  <!-- /.card-header -->
+                                  <div class="card-body table-responsive p-0">
+                                    <table class="table ">
+                                      <thead>
+                                        <th>Field Name</th>
+                                        <th>Field Type</th>
+                                        <th></th>
+                                      </thead>
+                                      <tbody>
+                                        <tr *ngFor="let i of array | slice:1">
+                                          <td>{{(i).fieldName}}</td>
+                                          <td>{{(i).fieldType}}</td>
+                                          <td>
+                                            <button (click)="delete(i)" type="button" class="btn btn-danger w-25">
+                                              <i class="fa fa-trash"></i>
+                                            </button>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                  <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                              </div>
+                            </div>
+                            <button type="button" style="width: 15%;" (click)="save(entityTableName.value) ; entityTableName.value='';fieldName.value=''; fieldType.value='String'"
+                              class="btn btn-block btn-primary">Save
+                              <i class="ml-2 fas fa-download"></i>
+                            </button>
+                            <hr>
+                          </div>
+                          <div *ngIf="RadioOptions == 'radioOption2'">
+                            <h5>Import from DB</h5>
+                            <br>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Database Type</label>
+                                  <select class="form-control">
+                                    <option>MySQL</option>
+                                    <option>Oracle</option>
+                                    <option>PostgreSQL</option>
+                                    <option>MSSQL</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Database URL</label>
+                                  <input type="email" class="form-control" placeholder="jdbc:mysql://localhost:3306/employees">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">User Name</label>
+                                  <input type="email" class="form-control" placeholder="username">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Password</label>
+                                  <input type="email" class="form-control" placeholder="password">
+                                </div>
+                              </div>
+                            </div>
+                            <button type="button" style="width: 15%;" (click)="d()" class="btn btn-block btn-primary">Import
+                              <i class="ml-2 fas fa-arrow-right"></i>
+                            </button>
+                            <hr>
+                          </div>
+                          <br>
+                          <h5>Define Relations</h5>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Relation Name</label>
+                                <select #otherEntityRelationshipName class="form-control">
+                                  <option *ngFor="let i of obj.tablesForUI ">{{i.entityTableName}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>&nbsp;</label>
+                                <select #relationshipType class="form-control">
+                                  <option value="one-to-one">one-to-one</option>
+                                  <option value="one-to-many">one-to-many</option>
+                                  <option value="many-to-one">many-to-one</option>
+                                  <option value="many-to-many">many-to-many</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Relation Name</label>
+                                <select #otherEntityName class="form-control">
+                                  <option *ngFor="let i of obj.tablesForUI">{{i.entityTableName}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-3">
+                              <label>&nbsp;</label>
+                              <button (click)="addRelationShip(otherEntityRelationshipName.value,relationshipType.value,otherEntityName.value) ; otherEntityRelationshipName.value='';relationshipType.value='one-to-one';otherEntityName.value=''"
+                                type="button" class="btn btn-block bg-gradient-success w-25">
+                                <i class="fas fa-plus"></i>
+                              </button>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="card">
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                  <table class="table ">
+                                    <thead>
+                                      <th>Entity</th>
+                                      <th>Mapping Type</th>
+                                      <th>Entity</th>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let i of tempRelationships">
+                                        <td>{{(i).otherEntityRelationshipName}}</td>
+                                        <td>{{(i).relationshipType}}</td>
+                                        <td>{{(i).otherEntityName}}</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <!-- /.card-body -->
+                              </div>
+                              <!-- /.card -->
+                            </div>
+                          </div>
+                          <a onclick="sc()" (click)="createFilter(uiFramework1, appName.value, appType1, defaultPackage.value, authType1.value, defaultPort.value, messagingAPI1.value )"
+                            class="btn btn-primary" style="width: 15%;" data-toggle="collapse" href="#collapseThree" role="button"
+                            aria-expanded="false" aria-controls="collapseThree">Save & Next
+                            <i class="fas fa-arrow-right ml-2"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-secondary">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fa fa-home mr-2"></i> SUMMARY
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                          <h5 class="mb-2">Application Configuration</h5>
+                          <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3">
+                              <div class="info-box">
+                                <span class="info-box-icon bg-info elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Application Name</span>
+                                  <span class="info-box-number">
+                                    {{this.obj.appName}}
+                                  </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-12 col-sm-6 col-md-3">
+                              <div class="info-box mb-3">
+                                <span class="info-box-icon bg-info elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Application Type</span>
+                                  <span class="info-box-number">{{this.obj.appType1}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <!-- fix for small devices only -->
+                            <div class="clearfix hidden-md-up"></div>
+                            <div class="col-12 col-sm-6 col-md-3">
+                              <div class="info-box mb-3">
+                                <span class="info-box-icon bg-info elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Default Package</span>
+                                  <span class="info-box-number">{{this.obj.defaultPackage}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-12 col-sm-6 col-md-3">
+                              <div class="info-box mb-3">
+                                <span class="info-box-icon bg-info elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Authentication Type</span>
+                                  <span class="info-box-number">{{this.obj.authType1}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <br>
+                          <h5 class="mb-2">Database Configuration</h5>
+                          <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3">
+                              <div class="info-box">
+                                <span class="info-box-icon bg-warning elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Database Type</span>
+                                  <span class="info-box-number">
+                                    {{this.obj.databaseType1}}
+                                  </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-12 col-sm-6 col-md-3">
+                              <div class="info-box mb-3">
+                                <span class="info-box-icon bg-warning elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Production Database</span>
+                                  <span class="info-box-number">{{this.obj.prodDatabase1}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <!-- fix for small devices only -->
+                            <div class="clearfix hidden-md-up"></div>
+                            <div class="col-12 col-sm-6 col-md-3">
+                              <div class="info-box mb-3">
+                                <span class="info-box-icon bg-warning elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Dev Database</span>
+                                  <span class="info-box-number">{{this.obj.devDatabase1}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-12 col-sm-6 col-md-3">
+                              <div class="info-box mb-3">
+                                <span class="info-box-icon bg-warning elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Hibernate Cache</span>
+                                  <span class="info-box-number">{{this.obj.hibernateCache1}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                          </div>
+                          <br>
+                          <h5 class="mb-2">Build & Deployment</h5>
+                          <div class="row">
+                            <div class="col-md-3">
+                              <div class="info-box">
+                                <span class="info-box-icon bg-danger elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">UI Framework</span>
+                                  <span class="info-box-number">{{this.obj.uiFramework1}}
+                                  </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-3">
+                              <div class="info-box mb-3">
+                                <span class="info-box-icon bg-danger elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Build Tool</span>
+                                  <span class="info-box-number">{{this.obj.buildtool1}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <!-- fix for small devices only -->
+                            <div class="clearfix hidden-md-up"></div>
+                            <div class="col-md-3">
+                              <div class="info-box mb-3">
+                                <span class="info-box-icon bg-danger elevation-1">
+                                  <i class="fas fa-cog"></i>
+                                </span>
+                                <div class="info-box-content">
+                                  <span class="info-box-text">Languages</span>
+                                  <span class="info-box-number">{{this.obj.languages1}}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                              </div>
+                              <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <br>
+                          <a class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false"
+                            aria-controls="collapseFour" onclick="sc()">Next
+                            <i class="ml-2 fas fa-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-secondary">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <i class="fa fa-check mr-2"></i> GENERATE APPLICATION
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseFour" class="panel-collapse collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                          Execute the ACE-WD Framework and download the generated project
+                          <br>
+                          <br>
+                          <div class="btn-group">
+                            <button *ngIf="CodegenController" [disabled]="!isValid" type="button" (click)="sendData()" class="btn  btn-primary mr-2">CodegenController
+                            </button>
+                            <button *ngIf="CodegenStatusController" type="button" (click)="execute()" class="btn  btn-primary mr-2">CodegenStatusController
+                            </button>
+                            <button *ngIf="downloadAvailable" type="button" (click)="download()" class="btn  btn-success mr-2">Download Zip
+                              <i class="ml-2 fas fa-download"></i>
+                            </button>
+                          </div>
+                          <img *ngIf="isLoading$ | async" height="40px" width="40px" src="https://media.giphy.com/media/sSgvbe1m3n93G/giphy.gif">
+      
+                          <div>
+                            <hr>
+                            <br>
+                            <h5>Repository Details</h5>
+                            <br>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Git repo type</label>
+                                  <select class="form-control">
+                                    <option selected>Bitbucket</option>
+                                    <option>Github</option>
+                                    <option>Gitlab</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Git username :</label>
+                                  <input type="text" class="form-control" placeholder="username">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Git password :</label>
+                                  <input type="password" class="form-control" placeholder="password">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Git project name :</label>
+                                  <input type="text" class="form-control" placeholder="project name">
+                                </div>
+                              </div>
+                            </div>
+                            <button *ngIf="pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
+                              <i class="ml-2 fab fa-git-alt"></i>
+                            </button>
+                          </div>
+      
+      
+      
+      
+      
+      
+                        </div>
+                      </div>
+                    </div>
+      
+      
+      
+      
+                    <div class="card card-secondary">
+                      <div class="card-header">
+                        <h4 class="card-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <i class="fas fa-upload mr-2"></i> DEPLOYMENT
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseFive" class="panel-collapse collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                        <div class="card-body">
+      
+      
+                          <div>
+                            <h5>Jenkins Details</h5>
+                            <br>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Jenkins URL :</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Jenkins user id :</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Jenkins password :</label>
+                                  <input type="password" class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Job name :</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                            </div>
+                            <button *ngIf="pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
+                              <i class="ml-2 fab fa-git-alt"></i>
+                            </button>
+                          </div>
+      
+      
+      
+      
+                          <div>
+                            <hr>
+                            <br>
+                            <h5>Deployment details :</h5>
+                            <br>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <form #myForm2="ngForm">
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">Deploy to</label>
+                                    <select name="deployTo" [(ngModel)]="deployTo" class="form-control">
+                                      <option value="">Select</option>
+                                      <option value="Kubernetes">Kubernetes</option>
+                                      <option value="OpenShift">OpenShift</option>
+                                      <option value="AWS">AWS</option>
+                                      <option value="Azure">Azure</option>
+                                      <option value="GCP">GCP</option>
+                                      <option value="PCF">PCF</option>
+                                    </select>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">{{myForm2.value.deployTo}} token :</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">{{myForm2.value.deployTo}} Namespace :</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">{{myForm2.value.deployTo}} URL :</label>
+                                  <input type="text" class="form-control">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Enable PCF Integration</label>
+                            </div>
+                            <br>
+                            <a class="btn bg-gradient-success mx-2" href="#" role="button">Deploy</a>
+      
+      
+                          </div>
+                        </div>
+                      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                    </div>
+                  </div>
+      
+      
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <!-- /.card -->
+              <!-- /.col -->
+              <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+          </div>
+        </div>
+        <footer class="main-footer d-none">
+          <strong>Copyright &copy; 2014-2018
+          </strong>
+        </footer>
+      </div>
