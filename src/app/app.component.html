@@ -800,27 +800,27 @@
                     </div>
                     <img *ngIf="isLoading$ | async" height="40px" width="40px" src="https://media.giphy.com/media/sSgvbe1m3n93G/giphy.gif">
 
+                    <form #gitForm="ngForm">
                     <div>
                       <hr>
                       <br>
                       <h5>Repository Details</h5>
                       <br>
+                     
                       <div class="row">
                         <div class="col-md-3">
                           <div class="form-group">
-                            <label>Git repo type</label>
-                            <select class="form-control">
-                              <option>Select</option>
-                              <option>Bitbucket</option>
-                              <option>Github</option>
-                              <option>Gitlab</option>
+                            <select  name="gitRepo" [(ngModel)]="gitRepo" class="form-control">
+                              <option value="">Select</option>
+                              <option value="Bitbucket">Bitbucket</option>
+                              <option value="Github">Github</option>
+                              <option value="Gitlab">Gitlab</option>
                             </select>
                           </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div  *ngIf="gitRepo == 'Bitbucket'" class="col-md-3">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">project name :</label>
                             <input type="text" class="form-control" placeholder="project name">
                           </div>
                         </div>
@@ -828,27 +828,26 @@
                       <div class="row">
                         <div class="col-md-3">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">username :</label>
                             <input type="text" class="form-control" placeholder="username">
                           </div>
                         </div>
                         <div class="col-md-3">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">password :</label>
                             <input type="password" class="form-control" placeholder="password">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">url :</label>
                             <input type="text" class="form-control" placeholder="url">
                           </div>
                         </div>
                       </div>
-                      <button *ngIf="pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
+                      
+                      <button type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
                         <i class="ml-2 fab fa-git-alt"></i>
                       </button>
                     </div>
+                  </form>
 
 
 
@@ -880,26 +879,22 @@
                       <div class="row">
                         <div class="col-md-3">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Jenkins URL :</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" placeholder="Jenkins URL ">
                           </div>
                         </div>
                         <div class="col-md-3">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Jenkins user id :</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" placeholder="Jenkins user id">
                           </div>
                         </div>
                         <div class="col-md-3">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Jenkins password :</label>
-                            <input type="password" class="form-control">
+                            <input type="password" class="form-control" placeholder="Jenkins password">
                           </div>
                         </div>
                         <div class="col-md-3">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Job name :</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" placeholder="Job name">
                           </div>
                         </div>
                       </div>
@@ -912,6 +907,7 @@
 
 
                     <div>
+                      <br>
                       <hr>
                       <br>
                       <h5>Deployment details :</h5>
@@ -937,20 +933,17 @@
                       <div class="row">
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">{{myForm2.value.deployTo}} token :</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" placeholder="{{myForm2.value.deployTo}} token">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">{{myForm2.value.deployTo}} Namespace :</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" placeholder="{{myForm2.value.deployTo}} Namespace">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="exampleInputEmail1">{{myForm2.value.deployTo}} URL :</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" placeholder="{{myForm2.value.deployTo}} URL">
                           </div>
                         </div>
                       </div>
