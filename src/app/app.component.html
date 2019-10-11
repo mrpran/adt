@@ -559,7 +559,7 @@
                         <!-- /.card -->
                       </div>
                     </div>
-                    <a onclick="sc()" (click)="createFilter(uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )"
+                    <a onclick="sc()" 
                       class="btn btn-primary" style="width: 15%;" data-toggle="collapse" href="#collapseThree" role="button"
                       aria-expanded="false" aria-controls="collapseThree">Save
                       <i class="fas fa-save ml-2"></i>
@@ -769,7 +769,7 @@
                       <!-- /.col -->
                     </div>
                     <br>
-                    <a class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false"
+                    <a (click)="createFilter(uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )" class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false"
                       aria-controls="collapseFour" onclick="sc()">Next
                       <i class="ml-2 fas fa-arrow-right"></i>
                     </a>
@@ -790,9 +790,8 @@
                     <br>
                     <br>
                     <div class="btn-group">
-                      <button *ngIf="CodegenController" [disabled]="!isValid" type="button" (click)="sendData()" class="btn  btn-primary mr-2">CodegenController
-                      </button>
-                      <button *ngIf="CodegenStatusController" type="button" (click)="execute()" class="btn  btn-primary mr-2">CodegenStatusController
+                      <button [disabled]="!isValid" type="button" (click)="sendData()" class="btn  btn-primary mr-2">Execute
+                        <i class="ml-2 fas fa-cog"></i>
                       </button>
                       <button *ngIf="downloadAvailable" type="button" (click)="download()" class="btn  btn-success mr-2">Download Zip
                         <i class="ml-2 fas fa-download"></i>
@@ -843,7 +842,7 @@
                         </div>
                       </div>
                       
-                      <button type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
+                      <button  [disabled]="!pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
                         <i class="ml-2 fab fa-git-alt"></i>
                       </button>
                     </div>

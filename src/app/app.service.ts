@@ -8,7 +8,7 @@ import 'rxjs/add/observable/of';
   providedIn: 'root'
 })
 export class AppService {
-  url = "http://13.233.238.129:8096/";
+  url = "http://13.235.103.123:8096/";
 
   constructor(private httpClient: HttpClient) { }
 

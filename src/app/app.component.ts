@@ -13,8 +13,6 @@ import { Subscription, BehaviorSubject } from 'rxjs';
 export class AppComponent implements OnInit {
   isLoading$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  CodegenController: boolean = false;
-  CodegenStatusController: boolean = false;
   downloadAvailable: boolean = false;
   pushToGit: boolean = false;
 
@@ -42,7 +40,7 @@ export class AppComponent implements OnInit {
 
 
 
-  isValid = true;
+  isValid = false;
   
 
   deployTo = "";
@@ -384,18 +382,17 @@ export class AppComponent implements OnInit {
     this.stringifiedJSON = this.addslashes(this.strJSON);
     this.test = '{"' + this.obj.appName + '":"' + this.stringifiedJSON + '"}';
     this.toast.info('Data Saved');
-    console.log('Data Saved');
-    this.CodegenController = true;
     console.log(this.test);
+    this.isValid = true;
   }
   sendData() {
     this.isLoading$.next(true);
     this.isValid = false;
+    this.downloadAvailable = false;
     this.toast.info("Sending Data to CodegenStatusController");
     this._appService.save(this.test).subscribe(
       sample => {
         this.toast.success(sample);
-        this.CodegenStatusController = true;
       },
       error => {
         console.log(error);
@@ -403,6 +400,7 @@ export class AppComponent implements OnInit {
       () => {
         this.isLoading$.next(false);
         this.isValid = true;
+        this.execute();
       }
     );
   }
@@ -420,11 +418,22 @@ export class AppComponent implements OnInit {
     this.toast.info("Downloading zip");
     this._appService.downloadzip(this.test, this.obj.appName).subscribe(
       data => {
-        this.getZipFile(data);
         this.pushToGit = true;
+        this.getZipFile(data);
       },
       error => console.log(error)
     );
+  }
+  getZipFile(data: any) {
+    const blob = new Blob([data], { type: 'application/octet-stream' });
+    const a: any = document.createElement('a');
+    document.body.appendChild(a);
+    a.style = 'display: none';
+    const url = window.URL.createObjectURL(blob);
+    a.href = url;
+    a.download = this.obj.appName + '.zip';
+    a.click();
+    window.URL.revokeObjectURL(url);
   }
   push() {
     this.toast.info("Pushing to Git");
@@ -444,15 +453,5 @@ export class AppComponent implements OnInit {
       error => console.log(error)
     );
   }
-  getZipFile(data: any) {
-    const blob = new Blob([data], { type: 'application/octet-stream' });
-    const a: any = document.createElement('a');
-    document.body.appendChild(a);
-    a.style = 'display: none';
-    const url = window.URL.createObjectURL(blob);
-    a.href = url;
-    a.download = this.obj.appName + '.zip';
-    a.click();
-    window.URL.revokeObjectURL(url);
-  }
+  
 }
