@@ -779,7 +779,7 @@
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group">
-                              <select name="gitRepo" [(ngModel)]="gitRepo" class="form-control">
+                              <select name="gitRepoType" [(ngModel)]="gitRepoType" class="form-control">
                                 <option value="">Select</option>
                                 <option value="Bitbucket">Bitbucket</option>
                                 <option value="Github">Github</option>
@@ -787,30 +787,30 @@
                               </select>
                             </div>
                           </div>
-                          <div *ngIf="gitRepo == 'Bitbucket'" class="col-md-3">
+                          <div *ngIf="gitRepotype == 'Bitbucket'" class="col-md-3">
                             <div class="form-group">
-                              <input type="text" class="form-control" placeholder="project name">
+                              <input name="gitProject" [(ngModel)]="gitProject"  type="text" class="form-control" placeholder="project name">
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group">
-                              <input type="text" class="form-control" placeholder="username">
+                              <input name="gitUsername" [(ngModel)]="gitUsername" type="text" class="form-control" placeholder="username">
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
-                              <input type="password" class="form-control" placeholder="password">
+                              <input name="gitPassword" [(ngModel)]="gitPassword" type="password" class="form-control" placeholder="password">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <input type="text" class="form-control" placeholder="url">
+                              <input name="gitUrlDevlite" [(ngModel)]="gitUrlDevlite" type="text" class="form-control" placeholder="url">
                             </div>
                           </div>
                         </div>
-                        <button [disabled]="!pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
+                        <button [disabled]="!pushToGit" type="button" (click)="push(gitRepoType, gitProject, gitUsername, gitPassword, gitUrlDevlite)" class="btn  btn-primary mr-2">Push To Git
                           <i class="ml-2 fab fa-git-alt"></i>
                         </button>
                       </div>

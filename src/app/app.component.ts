@@ -247,11 +247,11 @@ export class AppComponent implements OnInit {
       "Github",
       "Gitlab"
     ],
-    "gitUsername": "mrpran",
-    "gitPassword": "Pran@123",
-    "gitUrl": "https://github.com/",
-    "gitProject": "test_123",
-    "gitRepoType": "Github",
+    "gitUsername": "",
+    "gitPassword": "",
+    "gitUrl": "",
+    "gitProject": "",
+    "gitRepoType": "",
     "entities": [],
     "tablesForUI": [],
     "relationshipResponsesForUI": [],
@@ -289,9 +289,16 @@ export class AppComponent implements OnInit {
   targetCloudType = "";
   devInstance = "";
   emailId = "";
-
   devliteData: any = {
   }
+
+  gitRepoType = "";
+  gitProject = "";
+  gitUserame = "";
+  gitPassword = "";
+  gitUrlDevlite = "";
+
+
 
   constructor(private _appService: AppService, private toast: ToastrService) {
   }
@@ -419,11 +426,14 @@ export class AppComponent implements OnInit {
       this.entities[i]['relationships'] = this.relationships;
     }
     this.obj.entities = this.entities;
+
     this.strJSON = JSON.stringify(this.obj);
     this.stringifiedJSON = this.addslashes(this.strJSON);
     this.test = '{"' + this.obj.appName + '":"' + this.stringifiedJSON + '"}';
+
     this.toast.info('Data Saved');
     console.log(this.test);
+
     this.isValid = true;
   }
   sendData() {
@@ -476,7 +486,19 @@ export class AppComponent implements OnInit {
     a.click();
     window.URL.revokeObjectURL(url);
   }
-  push() {
+  push(gitRepoType, gitProject, gitUsername, gitPassword, gitUrlDevlite) {
+    this.obj.gitRepoType = gitRepoType;
+    this.obj.gitProject = gitProject;
+    this.obj.gitUsername = gitUsername;
+    this.obj.gitPassword = gitPassword;
+    this.obj.gitUrl = gitUrlDevlite;
+
+    this.strJSON = JSON.stringify(this.obj);
+    this.stringifiedJSON = this.addslashes(this.strJSON);
+    this.test = '{"' + this.obj.appName + '":"' + this.stringifiedJSON + '"}';
+    console.log(this.test);
+
+
     this.toast.info("Pushing to Git");
     this._appService.gitPush(this.test).subscribe(
       data => {
