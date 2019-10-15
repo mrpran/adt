@@ -278,17 +278,18 @@ export class AppComponent implements OnInit {
   entities: any = {};
 
 
-  instanceName = "";
-  gitUrl = "";
-  branchName = "";
-  language = "";
-  lVersion = "";
-  appServer = "";
-  fieldType = "";
-  serverType = "";
-  targetCloudType = "";
-  devInstance = "";
-  emailId = "";
+  instanceName = "test";
+  gitUrl = "https://github.com/kishore786/nextbusservice.git";
+  branchName = "dev";
+  language = "Java";
+  lVersion = "1.8";
+  appServer = "ApacheTomcat";
+  fieldType = "Brownfield";
+  serverType = "VM";
+  targetCloudType = "AWS";
+  devInstance = "1";
+  emailId = "kishore.kar@wipro.com";
+
   devliteData: any = {
   }
 
@@ -319,7 +320,7 @@ export class AppComponent implements OnInit {
     console.log(this.devliteData);
     this._appService.sendDevliteData(this.devliteData).subscribe(
       data => {
-        this.toast.success('Success : ' + data);
+        this.toast.success('Success ');
         console.log(data);
       },
       error => {
