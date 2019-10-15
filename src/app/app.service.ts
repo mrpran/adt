@@ -14,17 +14,14 @@ export class AppService {
   constructor(private httpClient: HttpClient) { }
 
   sendDevliteData(data: string): Observable<any> {
-
     return this.httpClient.post<string>(this.url + 'devlite/deploy', data, {
       headers: new HttpHeaders({
-        'Content-Type': 'text/plain;charset=utf-8',
-        'Accept': 'text/plain'
-      }), responseType: 'text' as 'json'
+        'Content-Type': 'application/json'
+      })
     });
   }
 
   save(data: string): Observable<any> {
-
     return this.httpClient.post<string>(this.url + 'TriggerCodgenController/codegeninfo', data, {
       headers: new HttpHeaders({
         'Content-Type': 'text/plain;charset=utf-8',

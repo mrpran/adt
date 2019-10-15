@@ -292,11 +292,11 @@ export class AppComponent implements OnInit {
   devliteData: any = {
   }
 
-  gitRepoType = "";
-  gitProject = "";
-  gitUserame = "";
-  gitPassword = "";
-  gitUrlDevlite = "";
+  gitRepoType = "Bitbucket";
+  gitProject = "dmp";
+  gitUsername = "root";
+  gitPassword = "root";
+  gitUrlDevlite = "http://13.235.95.145:7990/";
 
 
 
@@ -319,7 +319,8 @@ export class AppComponent implements OnInit {
     console.log(this.devliteData);
     this._appService.sendDevliteData(this.devliteData).subscribe(
       data => {
-        this.toast.success(data);
+        this.toast.success('Success : ' + data);
+        console.log(data);
       },
       error => {
         console.log(error);
