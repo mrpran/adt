@@ -296,7 +296,7 @@ export class AppComponent implements OnInit {
   gitProject = "dmp";
   gitUsername = "root";
   gitPassword = "root";
-  gitUrlDevlite = "http://13.235.95.145:7990/";
+  gitUrlDevlite = "http://13.235.95.145:7990";
 
 
 
@@ -496,7 +496,14 @@ export class AppComponent implements OnInit {
 
     this.strJSON = JSON.stringify(this.obj);
     this.stringifiedJSON = this.addslashes(this.strJSON);
-    this.test = '{"' + this.obj.appName + '":"' + this.stringifiedJSON + '"}';
+    this.test = '{"' + this.obj.appName + '":"' + this.stringifiedJSON + '",' +
+      '"_gitUrl":"' + gitUrlDevlite +
+      '","_gitUserName":"' + gitUsername +
+      '","_gitPassword":"' + gitPassword +
+      '","_gitRepoType":"' + gitRepoType +
+      '","_gitProject":"' + gitProject +
+      '"}';
+
     console.log(this.test);
 
 
