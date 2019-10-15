@@ -27,7 +27,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column " data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-                   with font-awesome or any other icon font library -->
+                     with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -56,14 +56,6 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Admin
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="devlite" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                DevLite - DMP integration
               </p>
             </a>
           </li>
@@ -127,8 +119,6 @@
                           </div>
                         </div>
                       </div>
-
-
                       <div class="row">
                         <div class="col-md-3">
                           <div class="form-group">
@@ -191,10 +181,8 @@
                           </div>
                         </div>
                       </div>
-
                       <br>
                       <hr>
-
                       <div *ngIf="appType1 == 'fullStack'">
                         <h5>UI Configuration</h5>
                         <br>
@@ -223,12 +211,12 @@
                           <div class="col-md-4">
                             <div class="form-group">
                               <label>Select languages</label>
-                              <select  class="form-control">
+                              <select class="form-control">
                                 <option value="">Select</option>
                                 <option value="Danish">Danish</option>
-                                <option  value="French">French</option>
-                                <option  value="German">German</option>
-                                <option  value="Spanish">Spanish</option>
+                                <option value="French">French</option>
+                                <option value="German">German</option>
+                                <option value="Spanish">Spanish</option>
                               </select>
                             </div>
                           </div>
@@ -247,112 +235,103 @@
                           </div>
                           <!-- /.form-group -->
                         </div>
-
-
-
                         <br>
                         <hr>
                       </div>
-
-                   
-
-
-
-                    <h5>Database Configuration</h5>
-                    <br>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Type of Database</label>
-                          <select name="databaseType1" [(ngModel)]="databaseType1" class="form-control">
-                            <option value="">Select</option>
-                            <option value="SQL database">SQL database</option>
-                            <option value="MongoDB">MongoDB</option>
-                          </select>
+                      <h5>Database Configuration</h5>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Type of Database</label>
+                            <select name="databaseType1" [(ngModel)]="databaseType1" class="form-control">
+                              <option value="">Select</option>
+                              <option value="SQL database">SQL database</option>
+                              <option value="MongoDB">MongoDB</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label>Enable Liquibase Configuration</label>
+                            <select name="enableLiquibase1" [(ngModel)]="enableLiquibase1" class="form-control">
+                              <option value="">Select</option>
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+                            </select>
+                          </div>
                         </div>
-                        <div class="form-group">
-                          <label>Enable Liquibase Configuration</label>
-                          <select name="enableLiquibase1" [(ngModel)]="enableLiquibase1" class="form-control">
-                            <option value="">Select</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                          </select>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Development database</label>
+                            <select name="devDatabase1" [(ngModel)]="devDatabase1" class="form-control">
+                              <option value="">Select</option>
+                              <option value="MySQL">MySQL</option>
+                              <option value="H2, running in-mmory">H2, running in-mmory</option>
+                              <option value="H2, with its data stored on disk">H2, with its data stored on disk</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label>Production database</label>
+                            <select name="prodDatabase1" [(ngModel)]="prodDatabase1" class="form-control">
+                              <option value="">Select</option>
+                              <option value="MySQL">MySQL</option>
+                              <option value="Oracle">Oracle</option>
+                              <option value="PostgreSQL">PostgreSQL</option>
+                              <option value="MSSQL">MSSQL</option>
+                            </select>
+                          </div>
                         </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Development database</label>
-                          <select name="devDatabase1" [(ngModel)]="devDatabase1" class="form-control">
-                            <option value="">Select</option>
-                            <option value="MySQL">MySQL</option>
-                            <option value="H2, running in-mmory">H2, running in-mmory</option>
-                            <option value="H2, with its data stored on disk">H2, with its data stored on disk</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label>Production database</label>
-                          <select name="prodDatabase1" [(ngModel)]="prodDatabase1" class="form-control">
-                            <option value="">Select</option>
-                            <option value="MySQL">MySQL</option>
-                            <option value="Oracle">Oracle</option>
-                            <option value="PostgreSQL">PostgreSQL</option>
-                            <option value="MSSQL">MSSQL</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Search Engine</label>
-                          <select name="searchEngine1" [(ngModel)]="searchEngine1" class="form-control">
-                            <option value="">Select</option>
-                            <option value="ElasticSearch">ElasticSearch</option>
-                          </select>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Search Engine</label>
+                            <select name="searchEngine1" [(ngModel)]="searchEngine1" class="form-control">
+                              <option value="">Select</option>
+                              <option value="ElasticSearch">ElasticSearch</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <br>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <h5>Testing Options</h5>
-                        <br>
-                        <div class="row">
-                          <div class="col-md-8">
-                            <div class="form-group">
-                              <label>Besides JUnit and Karma, which testing frameworks would you like to use?</label>
-                              <select name="testFramework1" [(ngModel)]="testFramework1" class="form-control">
-                                <option value="">Select</option>
-                                <option value="Gatling">Gatling</option>
-                                <option value="Cucumber">Cucumber</option>
-                                <option value="Protractor">Protractor</option>
-                              </select>
+                      <br>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <h5>Testing Options</h5>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <div class="form-group">
+                                <label>Besides JUnit and Karma, which testing frameworks would you like to use?</label>
+                                <select name="testFramework1" [(ngModel)]="testFramework1" class="form-control">
+                                  <option value="">Select</option>
+                                  <option value="Gatling">Gatling</option>
+                                  <option value="Cucumber">Cucumber</option>
+                                  <option value="Protractor">Protractor</option>
+                                </select>
+                              </div>
+                              <!-- /.form-group -->
                             </div>
                             <!-- /.form-group -->
                           </div>
-                          <!-- /.form-group -->
                         </div>
-                      </div>
-                      <div class="col-md-6">
-                        <h5>Build</h5>
-                        <br>
-                        <div class="row">
-                          <div class="col-md-8">
-                            <div class="form-group">
-                              <label>Type of Build Tool</label>
-                              <select name="buildtool1" [(ngModel)]="buildtool1" class="form-control">
-                                <option value="">Select</option>
-                                <option value="Maven">Maven</option>
-                                <option value="Gradle">Gradle</option>
-                              </select>
+                        <div class="col-md-6">
+                          <h5>Build</h5>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-8">
+                              <div class="form-group">
+                                <label>Type of Build Tool</label>
+                                <select name="buildtool1" [(ngModel)]="buildtool1" class="form-control">
+                                  <option value="">Select</option>
+                                  <option value="Maven">Maven</option>
+                                  <option value="Gradle">Gradle</option>
+                                </select>
+                              </div>
+                              <!-- /.form-group -->
                             </div>
                             <!-- /.form-group -->
                           </div>
-                          <!-- /.form-group -->
                         </div>
                       </div>
-                    </div>
-                    
-                  </form>
+                    </form>
                     <a class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false"
                       aria-controls="collapseTwo" onclick="sc()">Next
                       <i class="ml-2 fas fa-arrow-right"></i>
@@ -559,8 +538,7 @@
                         <!-- /.card -->
                       </div>
                     </div>
-                    <a onclick="sc()" 
-                      class="btn btn-primary" style="width: 15%;" data-toggle="collapse" href="#collapseThree" role="button"
+                    <a onclick="sc()" class="btn btn-primary" style="width: 15%;" data-toggle="collapse" href="#collapseThree" role="button"
                       aria-expanded="false" aria-controls="collapseThree">Save
                       <i class="fas fa-save ml-2"></i>
                     </a>
@@ -587,7 +565,6 @@
                           <div class="info-box-content">
                             <span class="info-box-text">Application Name</span>
                             <span *ngIf="!this.obj.appName" class="info-box-number">-</span>
-                          
                             <span class="info-box-number">
                               {{this.obj.appName}}
                             </span>
@@ -671,7 +648,6 @@
                           <div class="info-box-content">
                             <span class="info-box-text">Production Database</span>
                             <span *ngIf="!this.obj.prodDatabase1" class="info-box-number">-</span>
-                           
                             <span class="info-box-number">{{this.obj.prodDatabase1}}</span>
                           </div>
                           <!-- /.info-box-content -->
@@ -689,7 +665,6 @@
                           <div class="info-box-content">
                             <span class="info-box-text">Dev Database</span>
                             <span *ngIf="!this.obj.devDatabase1" class="info-box-number">-</span>
-                          
                             <span class="info-box-number">{{this.obj.devDatabase1}}</span>
                           </div>
                           <!-- /.info-box-content -->
@@ -705,7 +680,6 @@
                           <div class="info-box-content">
                             <span class="info-box-text">Hibernate Cache</span>
                             <span *ngIf="!this.obj.hibernateCache1" class="info-box-number">-</span>
-                          
                             <span class="info-box-number">{{this.obj.hibernateCache1}}</span>
                           </div>
                           <!-- /.info-box-content -->
@@ -724,7 +698,6 @@
                           <div class="info-box-content">
                             <span class="info-box-text">UI Framework</span>
                             <span *ngIf="!this.obj.uiFramework1" class="info-box-number">-</span>
-                          
                             <span class="info-box-number">{{this.obj.uiFramework1}}
                             </span>
                           </div>
@@ -741,7 +714,6 @@
                           <div class="info-box-content">
                             <span class="info-box-text">Build Tool</span>
                             <span *ngIf="!this.obj.buildtool1" class="info-box-number">-</span>
-                          
                             <span class="info-box-number">{{this.obj.buildtool1}}</span>
                           </div>
                           <!-- /.info-box-content -->
@@ -759,7 +731,6 @@
                           <div class="info-box-content">
                             <span class="info-box-text">Languages</span>
                             <span *ngIf="!this.obj.languages1" class="info-box-number">-</span>
-                          
                             <span class="info-box-number">{{this.obj.languages1}}</span>
                           </div>
                           <!-- /.info-box-content -->
@@ -769,8 +740,9 @@
                       <!-- /.col -->
                     </div>
                     <br>
-                    <a (click)="createFilter(uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )" class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false"
-                      aria-controls="collapseFour" onclick="sc()">Next
+                    <a (click)="createFilter(uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )" class="btn btn-primary"
+                      style="width: 15%" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour"
+                      onclick="sc()">Next
                       <i class="ml-2 fas fa-arrow-right"></i>
                     </a>
                   </div>
@@ -798,80 +770,181 @@
                       </button>
                     </div>
                     <img *ngIf="isLoading$ | async" height="40px" width="40px" src="https://media.giphy.com/media/sSgvbe1m3n93G/giphy.gif">
-
                     <form #gitForm="ngForm">
-                    <div>
-                      <hr>
-                      <br>
-                      <h5>Repository Details</h5>
-                      <br>
-                     
-                      <div class="row">
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <select  name="gitRepo" [(ngModel)]="gitRepo" class="form-control">
-                              <option value="">Select</option>
-                              <option value="Bitbucket">Bitbucket</option>
-                              <option value="Github">Github</option>
-                              <option value="Gitlab">Gitlab</option>
-                            </select>
+                      <div>
+                        <hr>
+                        <br>
+                        <h5>Repository Details</h5>
+                        <br>
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <select name="gitRepo" [(ngModel)]="gitRepo" class="form-control">
+                                <option value="">Select</option>
+                                <option value="Bitbucket">Bitbucket</option>
+                                <option value="Github">Github</option>
+                                <option value="Gitlab">Gitlab</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div *ngIf="gitRepo == 'Bitbucket'" class="col-md-3">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="project name">
+                            </div>
                           </div>
                         </div>
-
-                        <div  *ngIf="gitRepo == 'Bitbucket'" class="col-md-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="project name">
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="username">
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <input type="password" class="form-control" placeholder="password">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="url">
+                            </div>
                           </div>
                         </div>
+                        <button [disabled]="!pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
+                          <i class="ml-2 fab fa-git-alt"></i>
+                        </button>
                       </div>
-                      <div class="row">
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="username">
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="password" class="form-control" placeholder="password">
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="url">
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <button  [disabled]="!pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
-                        <i class="ml-2 fab fa-git-alt"></i>
-                      </button>
-                    </div>
-                  </form>
-
-
-
-
-
-
+                    </form>
                   </div>
                 </div>
               </div>
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h4 class="card-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      <i class="fa fa-check mr-2"></i> DevLite - DMP integration
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" aria-labelledby="headingFive" data-parent="#accordion">
 
+                  <form #devliteForm="ngForm" >
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Instance Name</label>
+                            <input type="text" name="instanceName" [(ngModel)]="instanceName" class="form-control" placeholder="product-Branch-Release version">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Git Code url</label>
+                            <input type="text" name="gitUrl" [(ngModel)]="gitUrl" class="form-control" placeholder="location of code">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Git Branch</label>
+                            <input type="text" name="branchName" [(ngModel)]="branchName" class="form-control" placeholder="Branch name in Git">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Language</label>
+                            <select name="language" [(ngModel)]="language" class="form-control">
+                              <option value="">Select</option>
+                              <option value="Java">Java</option>
+                              <option value=".Net">.Net</option>
+                              <option value="C">C</option>
+                              <option value="C++">C++</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Language Version</label>
+                            <input type="text" name="lVersion" [(ngModel)]="lVersion" class="form-control" placeholder="version">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>App Server</label>
+                            <select name="appServer" [(ngModel)]="appServer" class="form-control">
+                              <option value="">Select</option>
+                              <option value="ApacheTomcat">ApacheTomcat</option>
+                              <option value="Weblogic">Weblogic</option>
+                              <option value="Jboss">Jboss</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Field Type</label>
+                            <select name="fieldType" [(ngModel)]="fieldType" class="form-control">
+                              <option value="">Select</option>
+                              <option value="Brownfield">Brownfield</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Server Type</label>
+                            <select name="serverType" [(ngModel)]="serverType" class="form-control">
+                              <option value="">Select</option>
+                              <option value="VM">VM</option>
+                              <option value="containers">containers</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Target Cloud Type</label>
+                            <select name="targetCloudType" [(ngModel)]="targetCloudType" class="form-control">
+                              <option value="">Select</option>
+                              <option value="AWS">AWS</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Dev Instance</label>
+                            <input type="number" name="devInstance" [(ngModel)]="devInstance" class="form-control" placeholder="No of VMs/containers required">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Email id</label>
+                            <input type="email" name="emailId" [(ngModel)]="emailId" class="form-control" placeholder="email">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <button type="submit" (click)="createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId)" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
 
 
 
               <div class="card card-secondary">
                 <div class="card-header">
                   <h4 class="card-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                       <i class="fas fa-upload mr-2"></i> DEPLOYMENT
                     </a>
                   </h4>
                 </div>
-                <div id="collapseFive" class="panel-collapse collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                <div id="collapseSix" class="panel-collapse collapse" aria-labelledby="headingSix" data-parent="#accordion">
                   <div class="card-body">
-
-
                     <div>
                       <h5>Jenkins Details</h5>
                       <br>
@@ -897,14 +970,10 @@
                           </div>
                         </div>
                       </div>
-                      <button *ngIf="pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Push To Git
+                      <button *ngIf="pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Submit
                         <i class="ml-2 fab fa-git-alt"></i>
                       </button>
                     </div>
-
-
-
-
                     <div>
                       <br>
                       <hr>
@@ -952,38 +1021,14 @@
                       </div>
                       <br>
                       <a class="btn bg-gradient-success mx-2" href="#" role="button">Deploy</a>
-
-
                     </div>
                   </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               </div>
             </div>
-
-
           </div>
         </div>
-        <!-- /.card-body -->
-        <!-- /.card -->
-        <!-- /.col -->
-        <!-- /.row -->
       </div>
-      <!-- /.container-fluid -->
     </div>
   </div>
   <footer class="main-footer d-none">

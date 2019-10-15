@@ -5,6 +5,7 @@ import { stringify } from '../../node_modules/@angular/compiler/src/util';
 import { AppService } from './app.service';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription, BehaviorSubject } from 'rxjs';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,17 +18,17 @@ export class AppComponent implements OnInit {
   pushToGit: boolean = false;
 
 
-  
+
   appType1 = 'fullStack';
   RadioOptions = 'radioOption1';
 
-  appName="";
-  defaultPackage="com.wipro";
-  authType1= "";
+  appName = "";
+  defaultPackage = "com.wipro";
+  authType1 = "";
   defaultPort = 8080;
   messagingAPI1 = "";
   uiFramework1 = "";
-  mlsupport1 = ""; 
+  mlsupport1 = "";
   libSassCSS1 = "";
   databaseType1 = "SQL database";
   enableLiquibase1 = "";
@@ -41,11 +42,11 @@ export class AppComponent implements OnInit {
 
 
   isValid = false;
-  
+
 
   deployTo = "";
   gitRepo = "";
-  
+
   finalJson: any = {};
   strJSON: any;
   stringifiedJSON: any;
@@ -275,10 +276,50 @@ export class AppComponent implements OnInit {
   tempRelationships: any = [];
   relationships: any = [];
   entities: any = {};
+
+
+  instanceName = "";
+  gitUrl = "";
+  branchName = "";
+  language = "";
+  lVersion = "";
+  appServer = "";
+  fieldType = "";
+  serverType = "";
+  targetCloudType = "";
+  devInstance = "";
+  emailId = "";
+
+  devliteData: any = {
+  }
+
   constructor(private _appService: AppService, private toast: ToastrService) {
   }
   ngOnInit() {
   }
+
+  createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId) {
+    this.devliteData.instanceName = instanceName;
+    this.devliteData.gitUrl = gitUrl;
+    this.devliteData.branchName = branchName;
+    this.devliteData.language = language;
+    this.devliteData.lVersion = lVersion;
+    this.devliteData.appServer = appServer;
+    this.devliteData.fieldType = fieldType;
+    this.devliteData.targetCloudType = targetCloudType;
+    this.devliteData.devInstance = devInstance;
+    this.devliteData.emailId = emailId;
+    console.log(this.devliteData);
+    this._appService.sendDevliteData(this.devliteData).subscribe(
+      data => {
+        this.toast.success(data);
+      },
+      error => {
+        console.log(error);
+      },
+    );
+  }
+
   addslashes(str) {
     return (str).replace(/[\"]/g, '\\$&');
   };
@@ -410,6 +451,7 @@ export class AppComponent implements OnInit {
       sample => {
         this.toast.success(sample);
         this.downloadAvailable = true;
+        this.pushToGit = true;
       },
       error => console.log(error)
     );
@@ -418,7 +460,6 @@ export class AppComponent implements OnInit {
     this.toast.info("Downloading zip");
     this._appService.downloadzip(this.test, this.obj.appName).subscribe(
       data => {
-        this.pushToGit = true;
         this.getZipFile(data);
       },
       error => console.log(error)
@@ -453,5 +494,11 @@ export class AppComponent implements OnInit {
       error => console.log(error)
     );
   }
-  
+
+
+
+
+
+
+
 }

@@ -3,14 +3,25 @@ import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import 'rxjs/add/observable/of';
+import { NgForm} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-  url = "http://13.235.103.123:8096/";
+  url = "http://15.206.82.201:8096/";
 
   constructor(private httpClient: HttpClient) { }
+
+  sendDevliteData(data: string): Observable<any> {
+
+    return this.httpClient.post<string>(this.url + 'devlite/deploy', data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'text/plain;charset=utf-8',
+        'Accept': 'text/plain'
+      }), responseType: 'text' as 'json'
+    });
+  }
 
   save(data: string): Observable<any> {
 
