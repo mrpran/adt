@@ -9,9 +9,17 @@ import { NgForm} from '@angular/forms';
   providedIn: 'root'
 })
 export class AppService {
-  url = "http://15.206.82.201:8096/";
+  url = "http://ec2-52-66-106-249.ap-south-1.compute.amazonaws.com:8096/";
 
   constructor(private httpClient: HttpClient) { }
+
+  sendJenkinsData(data: string): Observable<any> {
+    return this.httpClient.post<string>(this.url + 'JenkinsItemController/iteminfo', data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
 
   sendDevliteData(data: string): Observable<any> {
     return this.httpClient.post<string>(this.url + 'devlite/deploy', data, {
@@ -21,6 +29,7 @@ export class AppService {
     });
   }
 
+  
   save(data: string): Observable<any> {
     return this.httpClient.post<string>(this.url + 'TriggerCodgenController/codegeninfo', data, {
       headers: new HttpHeaders({

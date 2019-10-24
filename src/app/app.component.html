@@ -779,7 +779,7 @@
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group">
-                                <label>Repository</label>
+                              <label>Repository</label>
                               <select name="gitRepoType" [(ngModel)]="gitRepoType" class="form-control">
                                 <option value="">Select</option>
                                 <option value="Bitbucket">Bitbucket</option>
@@ -790,32 +790,33 @@
                           </div>
                           <div *ngIf="gitRepoType == 'Bitbucket'" class="col-md-3">
                             <div class="form-group">
-                                <label>Project name</label>
-                              <input name="gitProject" [(ngModel)]="gitProject"  type="text" class="form-control" placeholder="project name">
+                              <label>Project name</label>
+                              <input name="gitProject" [(ngModel)]="gitProject" type="text" class="form-control" placeholder="project name">
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group">
-                                <label>User name</label>
+                              <label>User name</label>
                               <input name="gitUsername" [(ngModel)]="gitUsername" type="text" class="form-control" placeholder="username">
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
-                                <label>Password</label>
+                              <label>Password</label>
                               <input name="gitPassword" [(ngModel)]="gitPassword" type="password" class="form-control" placeholder="password">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                                <label>URL</label>
+                              <label>URL</label>
                               <input name="gitUrlDevlite" [(ngModel)]="gitUrlDevlite" type="text" class="form-control" placeholder="url">
                             </div>
                           </div>
                         </div>
-                        <button [disabled]="!pushToGit" type="button" (click)="push(gitRepoType, gitProject, gitUsername, gitPassword, gitUrlDevlite)" class="btn  btn-primary mr-2">Push
+                        <button [disabled]="!pushToGit" type="button" (click)="push(gitRepoType, gitProject, gitUsername, gitPassword, gitUrlDevlite)"
+                          class="btn  btn-primary mr-2">Push
                           <i class="ml-2 fab fa-git-alt"></i>
                         </button>
                       </div>
@@ -833,7 +834,7 @@
                 </div>
                 <div id="collapseFive" class="panel-collapse collapse" aria-labelledby="headingFive" data-parent="#accordion">
 
-                  <form #devliteForm="ngForm" >
+                  <form #devliteForm="ngForm">
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-4">
@@ -932,7 +933,8 @@
                       </div>
                     </div>
                     <div class="card-footer">
-                      <button type="submit" (click)="createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId)" class="btn btn-primary">Submit</button>
+                      <button type="submit" (click)="createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId)"
+                        class="btn btn-primary">Submit</button>
                     </div>
                   </form>
                 </div>
@@ -951,38 +953,6 @@
                 <div id="collapseSix" class="panel-collapse collapse" aria-labelledby="headingSix" data-parent="#accordion">
                   <div class="card-body">
                     <div>
-                      <h5>Jenkins Details</h5>
-                      <br>
-                      <div class="row">
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Jenkins URL ">
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Jenkins user id">
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Jenkins password">
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Job name">
-                          </div>
-                        </div>
-                      </div>
-                      <button *ngIf="pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Submit
-                        <i class="ml-2 fab fa-git-alt"></i>
-                      </button>
-                    </div>
-                    <div>
-                      <br>
-                      <hr>
-                      <br>
                       <h5>Deployment details :</h5>
                       <br>
                       <div class="row">
@@ -1027,6 +997,45 @@
                       <br>
                       <a class="btn bg-gradient-success mx-2" href="#" role="button">Deploy</a>
                     </div>
+                    <form #JenkinsForm="ngForm">
+                    <div>
+                      <br>
+                      <h5>Jenkins Details</h5>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                              <label>Jenkins URL</label>
+                            <input type="text" name="JenkinsUrl" [(ngModel)]="JenkinsUrl" class="form-control" placeholder="Jenkins URL ">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                              <label>Username</label>
+                            <input type="text" name="JenkinsUsername" [(ngModel)]="JenkinsUsername" class="form-control" placeholder="Username">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                              <label>Password</label>
+                            <input type="password" name="JenkinsPassword" [(ngModel)]="JenkinsPassword" class="form-control" placeholder="Password">
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                              <label>Job Name</label>
+                            <input type="text" name="JenkinsJobName" [(ngModel)]="JenkinsJobName" class="form-control" class="form-control" placeholder="Job name">
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" (click)="Jenkins(JenkinsUrl, JenkinsUsername, JenkinsPassword, JenkinsJobName)" class="btn  btn-primary mr-2">Submit
+                        
+                      </button>
+
+
+                      
+                    </div>
+                  </form>
                   </div>
                 </div>
               </div>

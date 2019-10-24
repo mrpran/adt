@@ -300,11 +300,61 @@ export class AppComponent implements OnInit {
   gitUrlDevlite = "http://13.235.95.145:7990";
 
 
+  buildFile = "Jenkinsfile";
+
+  JenkinsUrl = "http://13.234.78.162:8080";
+  JenkinsUsername = "admin";
+  JenkinsPassword = "admin";
+  JenkinsJobName = "test";
+
+  JenkinsData: any = {
+    "scm": {
+      "url": "",
+      "user": "",
+      "password": "",
+      "branch": "master",
+      "buildFile": "JenkinsFile"
+    },
+    "jenkins": {
+      "url": "",
+      "user": "",
+      "password": "",
+      "jobName": "",
+      "jobType": "pipeline",
+      "builtStart": true
+    }
+
+  }
+
 
   constructor(private _appService: AppService, private toast: ToastrService) {
   }
   ngOnInit() {
   }
+
+  Jenkins(JenkinsUrl, JenkinsUsername, JenkinsPassword, JenkinsJobName) {
+    this.JenkinsData.scm.url = this.obj.gitUrl + '/scm/dmp/' + this.obj.appName + '.git';
+    this.JenkinsData.scm.user = this.obj.gitUsername;
+    this.JenkinsData.scm.password = this.obj.gitPassword;
+    
+    this.JenkinsData.jenkins.url = JenkinsUrl;
+    this.JenkinsData.jenkins.user = JenkinsUsername;
+    this.JenkinsData.jenkins.password = JenkinsPassword;
+    this.JenkinsData.jenkins.jobName = JenkinsJobName;
+
+    console.log(this.JenkinsData);
+    this._appService.sendJenkinsData(this.JenkinsData).subscribe(
+      data => {
+        this.toast.success("Success");
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      },
+    );
+
+  }
+
 
   createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId) {
     this.devliteData.instanceName = instanceName;
@@ -434,7 +484,7 @@ export class AppComponent implements OnInit {
     this.test = '{"' + this.obj.appName + '":"' + this.stringifiedJSON + '"}';
 
     this.toast.info('Data Saved');
-    console.log(this.test);
+    //console.log(this.test);
 
     this.isValid = true;
   }
@@ -505,7 +555,7 @@ export class AppComponent implements OnInit {
       '","_gitProject":"' + gitProject +
       '"}';
 
-    console.log(this.test);
+    //console.log(this.test);
 
 
     this.toast.info("Pushing to Git");
