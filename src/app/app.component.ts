@@ -290,6 +290,14 @@ export class AppComponent implements OnInit {
   devInstance = "1";
   emailId = "kishore.kar@wipro.com";
 
+
+  jenkinsToken = "jenkinsToken";
+  jenkinsK8SUrl = "jenkinsK8SUrl";
+  jenkinsK8SNamespace = "jenkinsK8SNamespace";
+
+
+
+
   devliteData: any = {
   }
 
@@ -444,12 +452,18 @@ export class AppComponent implements OnInit {
     this.toast.info("Relationship" + " " + otherEntityRelationshipName + " " + "->" + " " + otherEntityName + " added");
   }
 
-  createFilter(uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1) {
+  createFilter(jenkinsToken, jenkinsK8SUrl, jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1) {
     appName = appName.trim();
     if (!appName) {
       this.toast.warning("app name should not be empty.");
       return;
     }
+
+    this.obj.jenkinsToken = jenkinsToken;
+    this.obj.jenkinsK8SUrl = jenkinsK8SUrl;
+    this.obj.jenkinsK8SNamespace = jenkinsK8SNamespace;
+
+
     this.obj.appName = appName;
     this.obj.appType1 = appType1;
     this.obj.defaultPackage = defaultPackage;
@@ -482,15 +496,12 @@ export class AppComponent implements OnInit {
     this.strJSON = JSON.stringify(this.obj);
     this.stringifiedJSON = this.addslashes(this.strJSON);
     this.test = '{"' + this.obj.appName + '":"' + this.stringifiedJSON + '"}';
-
     this.toast.info('Data Saved');
-    //console.log(this.test);
-
-    this.isValid = true;
+    this.sendData();
   }
   sendData() {
+    console.log(this.test);
     this.isLoading$.next(true);
-    this.isValid = false;
     this.downloadAvailable = false;
     this.toast.info("Sending Data to CodegenStatusController");
     this._appService.save(this.test).subscribe(
