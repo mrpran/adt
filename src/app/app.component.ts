@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   downloadAvailable: boolean = false;
   pushToGit: boolean = false;
+  jenkinsDeploy: boolean = false;
 
 
 
@@ -310,7 +311,7 @@ export class AppComponent implements OnInit {
 
   buildFile = "Jenkinsfile";
 
-  JenkinsUrl = "http://13.234.78.162:8080";
+  JenkinsUrl = "http://15.206.72.131:8080";
   JenkinsUsername = "admin";
   JenkinsPassword = "admin";
   JenkinsJobName = "test";
@@ -358,6 +359,7 @@ export class AppComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.toast.error(error.message);
       },
     );
 
@@ -496,7 +498,7 @@ export class AppComponent implements OnInit {
     this.strJSON = JSON.stringify(this.obj);
     this.stringifiedJSON = this.addslashes(this.strJSON);
     this.test = '{"' + this.obj.appName + '":"' + this.stringifiedJSON + '"}';
-    this.toast.info('Data Saved');
+    //this.toast.info('Data Saved');
     this.sendData();
   }
   sendData() {
@@ -519,10 +521,10 @@ export class AppComponent implements OnInit {
     );
   }
   execute() {
-    this.toast.info("Sending Data to FetchProgressStatusController");
+    //this.toast.info("Sending Data to FetchProgressStatusController");
     this._appService.status(this.test).subscribe(
       sample => {
-        this.toast.success(sample);
+        //this.toast.success(sample);
         this.downloadAvailable = true;
         this.pushToGit = true;
       },
@@ -569,7 +571,7 @@ export class AppComponent implements OnInit {
     //console.log(this.test);
 
 
-    this.toast.info("Pushing to Git");
+    //this.toast.info("Pushing to Git");
     this._appService.gitPush(this.test).subscribe(
       data => {
         var pos = data.search("unsuccessful");
@@ -578,6 +580,7 @@ export class AppComponent implements OnInit {
           console.log(data);
         }
         else {
+          this.jenkinsDeploy=true;
           this.toast.success("Push successful");
           console.log(data);
         }

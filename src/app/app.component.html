@@ -740,9 +740,8 @@
                       <!-- /.col -->
                     </div>
                     <br>
-                    <a  class="btn btn-primary"
-                      style="width: 15%" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour"
-                      onclick="sc()">Next
+                    <a class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false"
+                      aria-controls="collapseFour" onclick="sc()">Next
                       <i class="ml-2 fas fa-arrow-right"></i>
                     </a>
                   </div>
@@ -758,61 +757,62 @@
                 </div>
                 <div id="collapseFour" class="panel-collapse collapse" aria-labelledby="headingFour" data-parent="#accordion">
                   <div class="card-body">
-                      <div>
-                          <h5>Deployment details :</h5>
-                          <br>
-    
-                          <form #deployForm="ngForm">
-                            <div class="row">
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Deploy to</label>
-                                  <select name="deployTo" [(ngModel)]="deployTo" class="form-control">
-                                    <option value="">Select</option>
-                                    <option value="Kubernetes">Kubernetes</option>
-                                    <option value="OpenShift">OpenShift</option>
-                                    <option value="AWS">AWS</option>
-                                    <option value="Azure">Azure</option>
-                                    <option value="GCP">GCP</option>
-                                    <option value="PCF">PCF</option>
-                                  </select>
-                                </div>
-                              </div>
+                    <div>
+                      <h5>Deployment details :</h5>
+                      <br>
+
+                      <form #deployForm="ngForm">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Deploy to</label>
+                              <select name="deployTo" [(ngModel)]="deployTo" class="form-control">
+                                <option value="">Select</option>
+                                <option value="Kubernetes">Kubernetes</option>
+                                <option value="OpenShift">OpenShift</option>
+                                <option value="AWS">AWS</option>
+                                <option value="Azure">Azure</option>
+                                <option value="GCP">GCP</option>
+                                <option value="PCF">PCF</option>
+                              </select>
                             </div>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                  <label>token</label>
-                                  <input name="jenkinsToken" [(ngModel)]="jenkinsToken" type="text" class="form-control" placeholder="{{deployForm.value.deployTo}} token">
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>namespace</label>
-                                  <input name="jenkinsK8SNamespace" [(ngModel)]="jenkinsK8SNamespace" type="text" class="form-control" placeholder="{{deployForm.value.deployTo}} Namespace">
-                                </div>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>url</label>
-                                  <input name="jenkinsK8SUrl" [(ngModel)]="jenkinsK8SUrl" type="text" class="form-control" placeholder="{{deployForm.value.deployTo}} URL">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">Enable PCF Integration</label>
-                            </div>
-                            <br>
-                          </form>
+                          </div>
                         </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>token</label>
+                              <input name="jenkinsToken" [(ngModel)]="jenkinsToken" type="text" class="form-control" placeholder="{{deployForm.value.deployTo}} token">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>namespace</label>
+                              <input name="jenkinsK8SNamespace" [(ngModel)]="jenkinsK8SNamespace" type="text" class="form-control" placeholder="{{deployForm.value.deployTo}} Namespace">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>url</label>
+                              <input name="jenkinsK8SUrl" [(ngModel)]="jenkinsK8SUrl" type="text" class="form-control" placeholder="{{deployForm.value.deployTo}} URL">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Enable PCF Integration</label>
+                        </div>
+                        <br>
+                      </form>
+                    </div>
 
 
                     Execute the ACE-WD Framework and download the generated project
                     <br>
                     <br>
                     <div class="btn-group">
-                      <button  type="button" (click)="createFilter(jenkinsToken, jenkinsK8SUrl,jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )" class="btn  btn-primary mr-2">Execute
+                      <button type="button" (click)="createFilter(jenkinsToken, jenkinsK8SUrl,jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )"
+                        class="btn  btn-primary mr-2">Execute
                         <i class="ml-2 fas fa-cog"></i>
                       </button>
                       <button *ngIf="downloadAvailable" type="button" (click)="download()" class="btn  btn-success mr-2">Download Zip
@@ -820,57 +820,7 @@
                       </button>
                     </div>
                     <img *ngIf="isLoading$ | async" height="40px" width="40px" src="https://media.giphy.com/media/sSgvbe1m3n93G/giphy.gif">
-                    <form #gitForm="ngForm">
-                      <div>
-                        <hr>
-                        <br>
-                        <h5>Repository Details</h5>
-                        <br>
-                        <div class="row">
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label>Repository</label>
-                              <select name="gitRepoType" [(ngModel)]="gitRepoType" class="form-control">
-                                <option value="">Select</option>
-                                <option value="Bitbucket">Bitbucket</option>
-                                <option value="GitHub">Github</option>
-                                <option value="Gitlab">Gitlab</option>
-                              </select>
-                            </div>
-                          </div>
-                          <div *ngIf="gitRepoType == 'Bitbucket'" class="col-md-3">
-                            <div class="form-group">
-                              <label>Project name</label>
-                              <input name="gitProject" [(ngModel)]="gitProject" type="text" class="form-control" placeholder="project name">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label>User name</label>
-                              <input name="gitUsername" [(ngModel)]="gitUsername" type="text" class="form-control" placeholder="username">
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label>Password</label>
-                              <input name="gitPassword" [(ngModel)]="gitPassword" type="password" class="form-control" placeholder="password">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>URL</label>
-                              <input name="gitUrlDevlite" [(ngModel)]="gitUrlDevlite" type="text" class="form-control" placeholder="url">
-                            </div>
-                          </div>
-                        </div>
-                        <button [disabled]="!pushToGit" type="button" (click)="push(gitRepoType, gitProject, gitUsername, gitPassword, gitUrlDevlite)"
-                          class="btn  btn-primary mr-2">Push
-                          <i class="ml-2 fab fa-git-alt"></i>
-                        </button>
-                      </div>
-                    </form>
+
                   </div>
                 </div>
               </div>
@@ -878,115 +828,102 @@
                 <div class="card-header">
                   <h4 class="card-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                      <i class="fa fa-check mr-2"></i> DevLite - DMP INTEGRATION
+                      <i class="fa fa-check mr-2"></i> DEPLOYMENT
                     </a>
                   </h4>
                 </div>
                 <div id="collapseFive" class="panel-collapse collapse" aria-labelledby="headingFive" data-parent="#accordion">
-
-                  <form #devliteForm="ngForm">
                     <div class="card-body">
-                      <div class="row">
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Instance Name</label>
-                            <input type="text" name="instanceName" [(ngModel)]="instanceName" class="form-control" placeholder="product-Branch-Release version">
+                        <form #gitForm="ngForm">
+                          <div>
+                            <h5>Repository Details</h5>
+                            <br>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Repository</label>
+                                  <select name="gitRepoType" [(ngModel)]="gitRepoType" class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="Bitbucket">Bitbucket</option>
+                                    <option value="GitHub">Github</option>
+                                    <option value="Gitlab">Gitlab</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div *ngIf="gitRepoType == 'Bitbucket'" class="col-md-3">
+                                <div class="form-group">
+                                  <label>Project name</label>
+                                  <input name="gitProject" [(ngModel)]="gitProject" type="text" class="form-control" placeholder="project name">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>User name</label>
+                                  <input name="gitUsername" [(ngModel)]="gitUsername" type="text" class="form-control" placeholder="username">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Password</label>
+                                  <input name="gitPassword" [(ngModel)]="gitPassword" type="password" class="form-control" placeholder="password">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>URL</label>
+                                  <input name="gitUrlDevlite" [(ngModel)]="gitUrlDevlite" type="text" class="form-control" placeholder="url">
+                                </div>
+                              </div>
+                            </div>
+                            <button [disabled]="!pushToGit" type="button" (click)="push(gitRepoType, gitProject, gitUsername, gitPassword, gitUrlDevlite)"
+                              class="btn  btn-primary mr-2">Push
+                              <i class="ml-2 fab fa-git-alt"></i>
+                            </button>
                           </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Git Code url</label>
-                            <input type="text" name="gitUrl" [(ngModel)]="gitUrl" class="form-control" placeholder="location of code">
+                        </form>
+                        <form #JenkinsForm="ngForm">
+                          <div>
+                            <br>
+                            <h5>Jenkins Details</h5>
+                            <br>
+                            <div class="row">
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Jenkins URL</label>
+                                  <input type="text" name="JenkinsUrl" [(ngModel)]="JenkinsUrl" class="form-control" placeholder="Jenkins URL ">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Username</label>
+                                  <input type="text" name="JenkinsUsername" [(ngModel)]="JenkinsUsername" class="form-control" placeholder="Username">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Password</label>
+                                  <input type="password" name="JenkinsPassword" [(ngModel)]="JenkinsPassword" class="form-control" placeholder="Password">
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div class="form-group">
+                                  <label>Job Name</label>
+                                  <input type="text" name="JenkinsJobName" [(ngModel)]="JenkinsJobName" class="form-control" class="form-control" placeholder="Job name">
+                                </div>
+                              </div>
+                            </div>
+                            <button [disabled]="!jenkinsDeploy" type="button" (click)="Jenkins(JenkinsUrl, JenkinsUsername, JenkinsPassword, JenkinsJobName)" class="btn  btn-primary mr-2">Deploy
+    
+                            </button>
+    
+    
+    
                           </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Git Branch</label>
-                            <input type="text" name="branchName" [(ngModel)]="branchName" class="form-control" placeholder="Branch name in Git">
-                          </div>
-                        </div>
+                        </form>
                       </div>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Language</label>
-                            <select name="language" [(ngModel)]="language" class="form-control">
-                              <option value="">Select</option>
-                              <option value="Java">Java</option>
-                              <option value=".Net">.Net</option>
-                              <option value="C">C</option>
-                              <option value="C++">C++</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Language Version</label>
-                            <input type="text" name="lVersion" [(ngModel)]="lVersion" class="form-control" placeholder="version">
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>App Server</label>
-                            <select name="appServer" [(ngModel)]="appServer" class="form-control">
-                              <option value="">Select</option>
-                              <option value="ApacheTomcat">ApacheTomcat</option>
-                              <option value="Weblogic">Weblogic</option>
-                              <option value="Jboss">Jboss</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Field Type</label>
-                            <select name="fieldType" [(ngModel)]="fieldType" class="form-control">
-                              <option value="">Select</option>
-                              <option value="Brownfield">Brownfield</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Server Type</label>
-                            <select name="serverType" [(ngModel)]="serverType" class="form-control">
-                              <option value="">Select</option>
-                              <option value="VM">VM</option>
-                              <option value="containers">containers</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Target Cloud Type</label>
-                            <select name="targetCloudType" [(ngModel)]="targetCloudType" class="form-control">
-                              <option value="">Select</option>
-                              <option value="AWS">AWS</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Dev Instance</label>
-                            <input type="text" name="devInstance" [(ngModel)]="devInstance" class="form-control" placeholder="No of VMs/containers required">
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Email id</label>
-                            <input type="email" name="emailId" [(ngModel)]="emailId" class="form-control" placeholder="email">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-footer">
-                      <button type="submit" (click)="createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId)"
-                        class="btn btn-primary">Submit</button>
-                    </div>
-                  </form>
+                  
                 </div>
               </div>
 
@@ -996,52 +933,114 @@
                 <div class="card-header">
                   <h4 class="card-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                      <i class="fas fa-upload mr-2"></i> DEPLOYMENT
+                      <i class="fas fa-upload mr-2"></i>DevLite - DMP INTEGRATION  
                     </a>
                   </h4>
                 </div>
                 <div id="collapseSix" class="panel-collapse collapse" aria-labelledby="headingSix" data-parent="#accordion">
-                  <div class="card-body">
-                    <form #JenkinsForm="ngForm">
-                      <div>
-                        <br>
-                        <h5>Jenkins Details</h5>
-                        <br>
-                        <div class="row">
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label>Jenkins URL</label>
-                              <input type="text" name="JenkinsUrl" [(ngModel)]="JenkinsUrl" class="form-control" placeholder="Jenkins URL ">
+                    <form #devliteForm="ngForm">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Instance Name</label>
+                                <input type="text" name="instanceName" [(ngModel)]="instanceName" class="form-control" placeholder="product-Branch-Release version">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Git Code url</label>
+                                <input type="text" name="gitUrl" [(ngModel)]="gitUrl" class="form-control" placeholder="location of code">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Git Branch</label>
+                                <input type="text" name="branchName" [(ngModel)]="branchName" class="form-control" placeholder="Branch name in Git">
+                              </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label>Username</label>
-                              <input type="text" name="JenkinsUsername" [(ngModel)]="JenkinsUsername" class="form-control" placeholder="Username">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Language</label>
+                                <select name="language" [(ngModel)]="language" class="form-control">
+                                  <option value="">Select</option>
+                                  <option value="Java">Java</option>
+                                  <option value=".Net">.Net</option>
+                                  <option value="C">C</option>
+                                  <option value="C++">C++</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Language Version</label>
+                                <input type="text" name="lVersion" [(ngModel)]="lVersion" class="form-control" placeholder="version">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>App Server</label>
+                                <select name="appServer" [(ngModel)]="appServer" class="form-control">
+                                  <option value="">Select</option>
+                                  <option value="ApacheTomcat">ApacheTomcat</option>
+                                  <option value="Weblogic">Weblogic</option>
+                                  <option value="Jboss">Jboss</option>
+                                </select>
+                              </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label>Password</label>
-                              <input type="password" name="JenkinsPassword" [(ngModel)]="JenkinsPassword" class="form-control" placeholder="Password">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Field Type</label>
+                                <select name="fieldType" [(ngModel)]="fieldType" class="form-control">
+                                  <option value="">Select</option>
+                                  <option value="Brownfield">Brownfield</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Server Type</label>
+                                <select name="serverType" [(ngModel)]="serverType" class="form-control">
+                                  <option value="">Select</option>
+                                  <option value="VM">VM</option>
+                                  <option value="containers">containers</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Target Cloud Type</label>
+                                <select name="targetCloudType" [(ngModel)]="targetCloudType" class="form-control">
+                                  <option value="">Select</option>
+                                  <option value="AWS">AWS</option>
+                                </select>
+                              </div>
                             </div>
                           </div>
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label>Job Name</label>
-                              <input type="text" name="JenkinsJobName" [(ngModel)]="JenkinsJobName" class="form-control" class="form-control" placeholder="Job name">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Dev Instance</label>
+                                <input type="text" name="devInstance" [(ngModel)]="devInstance" class="form-control" placeholder="No of VMs/containers required">
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label>Email id</label>
+                                <input type="email" name="emailId" [(ngModel)]="emailId" class="form-control" placeholder="email">
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <button type="button" (click)="Jenkins(JenkinsUrl, JenkinsUsername, JenkinsPassword, JenkinsJobName)" class="btn  btn-primary mr-2">Submit
-
-                        </button>
-
-
-
-                      </div>
-                    </form>
-                  </div>
+                        <div class="card-footer">
+                          <button type="submit" (click)="createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId)"
+                            class="btn btn-primary">Submit</button>
+                        </div>
+                      </form>
                 </div>
               </div>
             </div>
