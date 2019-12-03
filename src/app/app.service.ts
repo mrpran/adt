@@ -9,7 +9,7 @@ import { NgForm} from '@angular/forms';
   providedIn: 'root'
 })
 export class AppService {
-  url = "http://ec2-52-66-106-249.ap-south-1.compute.amazonaws.com:8096/";
+  url = "http://13.127.137.96:8096/";
 
   constructor(private httpClient: HttpClient) { }
 

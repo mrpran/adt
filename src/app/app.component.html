@@ -766,7 +766,7 @@
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="exampleInputEmail1">Deploy to</label>
-                              <select name="deployTo" [(ngModel)]="deployTo" class="form-control">
+                              <select name="deploymentEnv" [(ngModel)]="deploymentEnv" class="form-control">
                                 <option value="">Select</option>
                                 <option value="Kubernetes">Kubernetes</option>
                                 <option value="OpenShift">OpenShift</option>
@@ -782,19 +782,19 @@
                           <div class="col-md-4">
                             <div class="form-group">
                               <label>token</label>
-                              <input name="jenkinsToken" [(ngModel)]="jenkinsToken" type="text" class="form-control" placeholder="{{deployForm.value.deployTo}} token">
+                              <input name="jenkinsToken" [(ngModel)]="jenkinsToken" type="text" class="form-control" placeholder="{{deployForm.value.deploymentEnv}} token">
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-group">
                               <label>namespace</label>
-                              <input name="jenkinsK8SNamespace" [(ngModel)]="jenkinsK8SNamespace" type="text" class="form-control" placeholder="{{deployForm.value.deployTo}} Namespace">
+                              <input name="jenkinsK8SNamespace" [(ngModel)]="jenkinsK8SNamespace" type="text" class="form-control" placeholder="{{deployForm.value.deploymentEnv}} Namespace">
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="form-group">
                               <label>url</label>
-                              <input name="jenkinsK8SUrl" [(ngModel)]="jenkinsK8SUrl" type="text" class="form-control" placeholder="{{deployForm.value.deployTo}} URL">
+                              <input name="jenkinsK8SUrl" [(ngModel)]="jenkinsK8SUrl" type="text" class="form-control" placeholder="{{deployForm.value.deploymentEnv}} URL">
                             </div>
                           </div>
                         </div>
@@ -811,7 +811,7 @@
                     <br>
                     <br>
                     <div class="btn-group">
-                      <button type="button" (click)="createFilter(jenkinsToken, jenkinsK8SUrl,jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )"
+                      <button type="button" (click)="createFilter(deploymentEnv,jenkinsToken, jenkinsK8SUrl,jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )"
                         class="btn  btn-primary mr-2">Execute
                         <i class="ml-2 fas fa-cog"></i>
                       </button>

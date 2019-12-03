@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
   isValid = false;
 
 
-  deployTo = "";
+  deploymentEnv = "";
   gitRepo = "";
 
   finalJson: any = {};
@@ -129,6 +129,7 @@ export class AppComponent implements OnInit {
     "enableLiquibase1": "",
     "includeJhipster1": "",
     "buildtool1": "Maven",
+    "deploymentEnv" :"",
     "jenkinsToken": "",
     "jenkinsK8SUrl": "",
     "jenkinsK8SNamespace": "",
@@ -454,13 +455,15 @@ export class AppComponent implements OnInit {
     this.toast.info("Relationship" + " " + otherEntityRelationshipName + " " + "->" + " " + otherEntityName + " added");
   }
 
-  createFilter(jenkinsToken, jenkinsK8SUrl, jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1) {
+  createFilter(deploymentEnv,jenkinsToken, jenkinsK8SUrl, jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1) {
     appName = appName.trim();
     if (!appName) {
       this.toast.warning("app name should not be empty.");
       return;
     }
 
+    console.log(deploymentEnv);
+    this.obj.deploymentEnv = deploymentEnv;
     this.obj.jenkinsToken = jenkinsToken;
     this.obj.jenkinsK8SUrl = jenkinsK8SUrl;
     this.obj.jenkinsK8SNamespace = jenkinsK8SNamespace;
