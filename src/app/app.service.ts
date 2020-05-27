@@ -9,9 +9,38 @@ import { NgForm} from '@angular/forms';
   providedIn: 'root'
 })
 export class AppService {
-  url = "http://15.206.82.201:8096/";
+  url = "http://13.233.25.149:8096/";
+  surl = "http://15.206.75.28:8096/swagger/codegen";
 
   constructor(private httpClient: HttpClient) { }
+
+  sendJenkinsData(data: string): Observable<any> {
+    return this.httpClient.post<string>(this.url + 'JenkinsItemController/iteminfo', data, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+  sendSwagUrlData(data): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('url', data);
+    return this.httpClient.post<any>(this.surl , formData, {
+      headers: new HttpHeaders({
+      }), responseType: 'text' as 'json'
+    });
+  }
+
+
+  sendSwagFileData(fileToUpload: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    console.log(formData.get('file'));
+
+    return this.httpClient.post<any>(this.surl , formData, {
+      headers: new HttpHeaders({
+      }), responseType: 'text' as 'json'
+    });
+  }
 
   sendDevliteData(data: string): Observable<any> {
     return this.httpClient.post<string>(this.url + 'devlite/deploy', data, {
@@ -21,6 +50,7 @@ export class AppService {
     });
   }
 
+  
   save(data: string): Observable<any> {
     return this.httpClient.post<string>(this.url + 'TriggerCodgenController/codegeninfo', data, {
       headers: new HttpHeaders({

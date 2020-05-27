@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   downloadAvailable: boolean = false;
   pushToGit: boolean = false;
+  jenkinsDeploy: boolean = false;
 
 
 
@@ -44,7 +45,7 @@ export class AppComponent implements OnInit {
   isValid = false;
 
 
-  deployTo = "";
+  deploymentEnv = "";
   gitRepo = "";
 
   finalJson: any = {};
@@ -128,6 +129,7 @@ export class AppComponent implements OnInit {
     "enableLiquibase1": "",
     "includeJhipster1": "",
     "buildtool1": "Maven",
+    "deploymentEnv": "",
     "jenkinsToken": "",
     "jenkinsK8SUrl": "",
     "jenkinsK8SNamespace": "",
@@ -271,7 +273,9 @@ export class AppComponent implements OnInit {
     "auth": "",
     "uiFw": "",
     "libSass": "",
-    "test": ""
+    "test": "",
+
+    "swaggergen": false
   }
   tempRelationships: any = [];
   relationships: any = [];
@@ -290,21 +294,113 @@ export class AppComponent implements OnInit {
   devInstance = "1";
   emailId = "kishore.kar@wipro.com";
 
-  devliteData: any = {
-  }
+
+
+
+
+
+
+  jenkinsToken = "jenkinsToken";
+  jenkinsK8SUrl = "https://okd.wiprodx.com:8443/";
+  jenkinsK8SNamespace = "dmp";
+
+
+
+
+
 
   gitRepoType = "Bitbucket";
   gitProject = "dmp";
   gitUsername = "root";
   gitPassword = "root";
-  gitUrlDevlite = "http://13.235.95.145:7990";
+  gitUrlDevlite = "http://13.234.113.15:7990";
 
 
+  buildFile = "Jenkinsfile";
+
+  JenkinsUrl = "http://13.232.60.218:8080";
+  JenkinsUsername = "admin";
+  JenkinsPassword = "admin";
+  JenkinsJobName = "test";
+
+  JenkinsData: any = {
+    "scm": {
+      "url": "",
+      "user": "",
+      "password": "",
+      "branch": "master",
+      "buildFile": "JenkinsFile"
+    },
+    "jenkins": {
+      "url": "",
+      "user": "",
+      "password": "",
+      "jobName": "",
+      "jobType": "pipeline",
+      "builtStart": true
+    }
+
+  }
+
+  importFromSwagger = "file";
+  swaggerUrl = "";
+  //formData;
+  //swagUrlData: any = {};
+
+  fileToUpload: File = null;
+
+  devliteData: any = {
+  }
 
   constructor(private _appService: AppService, private toast: ToastrService) {
   }
   ngOnInit() {
   }
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
+
+  createSwagFileData() {
+    this.obj.swaggergen = true;
+    this._appService.sendSwagFileData(this.fileToUpload).subscribe(
+      data => {
+        this.toast.success('Success');
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      },
+    );
+  }
+
+  createSwagUrlData(swaggerUrl) {
+    swaggerUrl = swaggerUrl.trim();
+    if (!swaggerUrl) {
+      this.toast.warning("url should not be empty.");
+      return;
+    }
+    if (swaggerUrl.endsWith(".json") || swaggerUrl.endsWith(".yml") || swaggerUrl.endsWith(".yam")) {
+      this.obj.swaggergen = true;
+      this._appService.sendSwagUrlData(swaggerUrl).subscribe(
+        data => {
+          this.toast.success('Success');
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        },
+      );
+    }
+    else {
+      this.toast.warning("extension should be .json/.yml/.yaml.");
+      return;
+    }
+
+
+  }
+
+
 
   createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId) {
     this.devliteData.instanceName = instanceName;
@@ -328,6 +424,39 @@ export class AppComponent implements OnInit {
       },
     );
   }
+
+
+
+
+
+
+
+  Jenkins(JenkinsUrl, JenkinsUsername, JenkinsPassword, JenkinsJobName) {
+    this.JenkinsData.scm.url = this.obj.gitUrl + '/scm/dmp/' + this.obj.appName + '.git';
+    this.JenkinsData.scm.user = this.obj.gitUsername;
+    this.JenkinsData.scm.password = this.obj.gitPassword;
+
+    this.JenkinsData.jenkins.url = JenkinsUrl;
+    this.JenkinsData.jenkins.user = JenkinsUsername;
+    this.JenkinsData.jenkins.password = JenkinsPassword;
+    this.JenkinsData.jenkins.jobName = JenkinsJobName;
+
+    console.log(this.JenkinsData);
+    this._appService.sendJenkinsData(this.JenkinsData).subscribe(
+      data => {
+        this.toast.success("Success");
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+        this.toast.error(error.message);
+      },
+    );
+
+  }
+
+
+
 
   addslashes(str) {
     return (str).replace(/[\"]/g, '\\$&');
@@ -394,12 +523,20 @@ export class AppComponent implements OnInit {
     this.toast.info("Relationship" + " " + otherEntityRelationshipName + " " + "->" + " " + otherEntityName + " added");
   }
 
-  createFilter(uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1) {
+  createFilter(deploymentEnv, jenkinsToken, jenkinsK8SUrl, jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1) {
     appName = appName.trim();
     if (!appName) {
       this.toast.warning("app name should not be empty.");
       return;
     }
+
+    console.log(deploymentEnv);
+    this.obj.deploymentEnv = deploymentEnv;
+    this.obj.jenkinsToken = jenkinsToken;
+    this.obj.jenkinsK8SUrl = jenkinsK8SUrl;
+    this.obj.jenkinsK8SNamespace = jenkinsK8SNamespace;
+
+
     this.obj.appName = appName;
     this.obj.appType1 = appType1;
     this.obj.defaultPackage = defaultPackage;
@@ -432,15 +569,12 @@ export class AppComponent implements OnInit {
     this.strJSON = JSON.stringify(this.obj);
     this.stringifiedJSON = this.addslashes(this.strJSON);
     this.test = '{"' + this.obj.appName + '":"' + this.stringifiedJSON + '"}';
-
-    this.toast.info('Data Saved');
-    console.log(this.test);
-
-    this.isValid = true;
+    //this.toast.info('Data Saved');
+    this.sendData();
   }
   sendData() {
+    console.log(this.test);
     this.isLoading$.next(true);
-    this.isValid = false;
     this.downloadAvailable = false;
     this.toast.info("Sending Data to CodegenStatusController");
     this._appService.save(this.test).subscribe(
@@ -458,10 +592,10 @@ export class AppComponent implements OnInit {
     );
   }
   execute() {
-    this.toast.info("Sending Data to FetchProgressStatusController");
+    //this.toast.info("Sending Data to FetchProgressStatusController");
     this._appService.status(this.test).subscribe(
       sample => {
-        this.toast.success(sample);
+        //this.toast.success(sample);
         this.downloadAvailable = true;
         this.pushToGit = true;
       },
@@ -505,10 +639,10 @@ export class AppComponent implements OnInit {
       '","_gitProject":"' + gitProject +
       '"}';
 
-    console.log(this.test);
+    //console.log(this.test);
 
 
-    this.toast.info("Pushing to Git");
+    //this.toast.info("Pushing to Git");
     this._appService.gitPush(this.test).subscribe(
       data => {
         var pos = data.search("unsuccessful");
@@ -517,6 +651,7 @@ export class AppComponent implements OnInit {
           console.log(data);
         }
         else {
+          this.jenkinsDeploy = true;
           this.toast.success("Push successful");
           console.log(data);
         }

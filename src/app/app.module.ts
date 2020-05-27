@@ -11,8 +11,10 @@ import {ToastrModule} from 'ngx-toastr';
 import {NgBusyModule} from 'ng-busy';
 import { DevliteComponent } from './devlite/devlite.component';
 import { AdtComponent } from './adt/adt.component';
+import { TestComponent } from './test/test.component';
 
 const appRoutes: Routes = [
+  { path: 'test', component: TestComponent},
   { path: '', component: AppComponent},
   { path: 'devlite', component: DevliteComponent}
 ];
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DevliteComponent,
-    AdtComponent
+    AdtComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

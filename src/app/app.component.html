@@ -8,7 +8,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        style="opacity: .8">
       <span class="brand-text font-weight-light">DMP</span>
     </a>
     <!-- Sidebar -->
@@ -16,7 +17,8 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img height="160px" width="160px" src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
+          <img height="160px" width="160px"
+            src="https://www.pngfind.com/pngs/m/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.png"
             class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
@@ -123,13 +125,15 @@
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="exampleInputEmail1">Application Name</label>
-                            <input name="appName" [(ngModel)]="appName" type="text" class="form-control" placeholder="appName">
+                            <input name="appName" [(ngModel)]="appName" type="text" class="form-control"
+                              placeholder="appName">
                           </div>
                         </div>
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="exampleInputEmail1">Default Java package</label>
-                            <input name="defaultPackage" [(ngModel)]="defaultPackage" type="text" class="form-control" placeholder="defaultPackage">
+                            <input name="defaultPackage" [(ngModel)]="defaultPackage" type="text" class="form-control"
+                              placeholder="defaultPackage">
                           </div>
                         </div>
                         <div class="col-md-3">
@@ -146,7 +150,8 @@
                         <div class="col-md-3  ">
                           <div class="form-group">
                             <label for="exampleInputEmail1">Default Server Port</label>
-                            <input name="defaultPort" [(ngModel)]="defaultPort" type="number" class="form-control" placeholder="8080">
+                            <input name="defaultPort" [(ngModel)]="defaultPort" type="number" class="form-control"
+                              placeholder="8080">
                           </div>
                         </div>
                       </div>
@@ -332,8 +337,8 @@
                         </div>
                       </div>
                     </form>
-                    <a class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseTwo" role="button" aria-expanded="false"
-                      aria-controls="collapseTwo" onclick="sc()">Next
+                    <a class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseTwo"
+                      role="button" aria-expanded="false" aria-controls="collapseTwo" onclick="sc()">Next
                       <i class="ml-2 fas fa-arrow-right"></i>
                     </a>
                   </div>
@@ -342,7 +347,8 @@
               <div class="card card-secondary">
                 <div class="card-header">
                   <h4 class="card-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                      aria-controls="collapseTwo">
                       <i class="fa fa-tasks mr-2"></i> ENTITY DESIGNER
                     </a>
                   </h4>
@@ -352,16 +358,24 @@
                     <form #myForm="ngForm">
                       <div class="text-center">
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions" checked id="inlineRadio1" value="radioOption1">
+                          <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions"
+                            checked id="inlineRadio1" value="radioOption1">
                           <label class="form-check-label" for="inlineRadio1">Create Entities</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions" id="inlineRadio2" value="radioOption2">
+                          <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions"
+                            id="inlineRadio2" value="radioOption2">
                           <label class="form-check-label" for="inlineRadio2">Import from DB</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions" id="inlineRadio3" value="radioOption3">
+                          <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions"
+                            id="inlineRadio3" value="radioOption3">
                           <label class="form-check-label" for="inlineRadio2">Import from WSDL</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" [(ngModel)]="RadioOptions" name="RadioOptions"
+                            id="inlineRadio4" value="radioOption4">
+                          <label class="form-check-label" for="inlineRadio2">Import from Swagger</label>
                         </div>
                       </div>
                     </form>
@@ -395,7 +409,9 @@
                         </div>
                         <div class="col-md-3">
                           <label class="">&nbsp;</label>
-                          <button (click)="add(fieldName.value,fieldType.value) ; fieldName.value='';fieldType.value='String'" type="button" class="btn btn-block bg-gradient-success w-25">
+                          <button
+                            (click)="add(fieldName.value,fieldType.value) ; fieldName.value='';fieldType.value='String'"
+                            type="button" class="btn btn-block bg-gradient-success w-25">
                             <i class="fas fa-plus"></i>
                           </button>
                         </div>
@@ -429,7 +445,8 @@
                           <!-- /.card -->
                         </div>
                       </div>
-                      <button type="button" style="width: 15%;" (click)="save(entityTableName.value) ; entityTableName.value='';fieldName.value=''; fieldType.value='String'"
+                      <button type="button" style="width: 15%;"
+                        (click)="save(entityTableName.value) ; entityTableName.value='';fieldName.value=''; fieldType.value='String'"
                         class="btn btn-block btn-primary">Save
                         <i class="ml-2 fas fa-save"></i>
                       </button>
@@ -453,7 +470,8 @@
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="exampleInputEmail1">Database URL</label>
-                            <input type="email" class="form-control" placeholder="jdbc:mysql://localhost:3306/employees">
+                            <input type="email" class="form-control"
+                              placeholder="jdbc:mysql://localhost:3306/employees">
                           </div>
                         </div>
                         <div class="col-md-3">
@@ -474,8 +492,79 @@
                       </button>
                       <hr>
                     </div>
-                    <br>
-                    <h5>Define Relations</h5>
+
+
+
+                    <div *ngIf="RadioOptions == 'radioOption4'">
+                      <h5>Import from Swagger</h5>
+                      <br>
+
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Choose any one</label>
+                            <select name="importFromSwagger" [(ngModel)]="importFromSwagger" class="form-control">
+                              <option value="url">Swagger URL </option>
+                              <option value="file">Upload from Disk</option>
+                            </select>
+                          </div>
+                        </div>
+                        
+                      </div>
+
+
+
+
+
+
+                      <form *ngIf="importFromSwagger=='url'" #swaggerForm1="ngForm">
+                        <div class="row">
+                          <div class="col-md-6">
+
+                            <div  class="form-group">
+                              <label for="exampleInputEmail1">URL</label>
+                              <input type="text" name="swaggerUrl" [(ngModel)]="swaggerUrl" class="form-control"
+                                id="url" placeholder="Enter url">
+                            </div>
+
+                          </div>
+                        </div>
+                        <button type="submit" style="width: 15%;" (click)="createSwagUrlData(swaggerUrl)"
+                          class="btn btn-block btn-primary">Import
+                          <i class="ml-2 fas fa-arrow-right"></i>
+                        </button>
+                      </form>
+
+
+                      <form *ngIf="importFromSwagger=='file'" #swaggerForm2="ngForm">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div  *ngIf="importFromSwagger=='file'" class="form-group">
+                              <label for="exampleInputFile">File format supported are ".json" and ".yaml/.yml"</label>
+                              <div class="input-group">
+                                <input type="file" (change)="handleFileInput($event.target.files)" id="file">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="submit" style="width: 15%;" (click)="createSwagFileData()"
+                          class="btn btn-block btn-primary">Import
+                          <i class="ml-2 fas fa-arrow-right"></i>
+                        </button>
+                      </form>
+
+
+                      
+                    </div>
+
+
+
+                   
+
+                    <div *ngIf="RadioOptions != 'radioOption4'"> 
+                      <br>
+                    <h5 >Define Relations</h5>
                     <br>
                     <div class="row">
                       <div class="col-md-3">
@@ -507,7 +596,8 @@
                       </div>
                       <div class="col-md-3">
                         <label>&nbsp;</label>
-                        <button (click)="addRelationShip(otherEntityRelationshipName.value,relationshipType.value,otherEntityName.value) ; otherEntityRelationshipName.value='';relationshipType.value='one-to-one';otherEntityName.value=''"
+                        <button
+                          (click)="addRelationShip(otherEntityRelationshipName.value,relationshipType.value,otherEntityName.value) ; otherEntityRelationshipName.value='';relationshipType.value='one-to-one';otherEntityName.value=''"
                           type="button" class="btn btn-block bg-gradient-success w-25">
                           <i class="fas fa-plus"></i>
                         </button>
@@ -538,22 +628,29 @@
                         <!-- /.card -->
                       </div>
                     </div>
-                    <a onclick="sc()" class="btn btn-primary" style="width: 15%;" data-toggle="collapse" href="#collapseThree" role="button"
-                      aria-expanded="false" aria-controls="collapseThree">Save
+                    <a onclick="sc()" class="btn btn-primary" style="width: 15%;" data-toggle="collapse"
+                      href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">Save
                       <i class="fas fa-save ml-2"></i>
-                    </a>
+                    </a></div>
+
+
+
+
+
                   </div>
                 </div>
               </div>
               <div class="card card-secondary">
                 <div class="card-header">
                   <h4 class="card-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                      aria-controls="collapseThree">
                       <i class="fa fa-home mr-2"></i> SUMMARY
                     </a>
                   </h4>
                 </div>
-                <div id="collapseThree" class="panel-collapse collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="collapseThree" class="panel-collapse collapse" aria-labelledby="headingThree"
+                  data-parent="#accordion">
                   <div class="card-body">
                     <h5 class="mb-2">Application Configuration</h5>
                     <div class="row">
@@ -564,9 +661,9 @@
                           </span>
                           <div class="info-box-content">
                             <span class="info-box-text">Application Name</span>
-                            <span *ngIf="!this.obj.appName" class="info-box-number">-</span>
+                            <!-- <span *ngIf="!this.obj.appName" class="info-box-number">-</span> -->
                             <span class="info-box-number">
-                              {{this.obj.appName}}
+                              {{this.appName}}
                             </span>
                           </div>
                           <!-- /.info-box-content -->
@@ -581,7 +678,7 @@
                           </span>
                           <div class="info-box-content">
                             <span class="info-box-text">Application Type</span>
-                            <span class="info-box-number">{{this.obj.appType1}}</span>
+                            <span class="info-box-number">{{this.appType1}}</span>
                           </div>
                           <!-- /.info-box-content -->
                         </div>
@@ -597,7 +694,7 @@
                           </span>
                           <div class="info-box-content">
                             <span class="info-box-text">Default Package</span>
-                            <span class="info-box-number">{{this.obj.defaultPackage}}</span>
+                            <span class="info-box-number">{{this.defaultPackage}}</span>
                           </div>
                           <!-- /.info-box-content -->
                         </div>
@@ -611,8 +708,8 @@
                           </span>
                           <div class="info-box-content">
                             <span class="info-box-text">Authentication Type</span>
-                            <span *ngIf="!this.obj.authType1" class="info-box-number">-</span>
-                            <span class="info-box-number">{{this.obj.authType1}}</span>
+                            <!-- <span *ngIf="!this.obj.authType1" class="info-box-number">-</span> -->
+                            <span class="info-box-number">{{this.authType1}}</span>
                           </div>
                           <!-- /.info-box-content -->
                         </div>
@@ -630,9 +727,9 @@
                           </span>
                           <div class="info-box-content">
                             <span class="info-box-text">Database Type</span>
-                            <span *ngIf="!this.obj.databaseType1" class="info-box-number">-</span>
+                            <!-- <span *ngIf="!this.obj.databaseType1" class="info-box-number">-</span> -->
                             <span class="info-box-number">
-                              {{this.obj.databaseType1}}
+                              {{this.databaseType1}}
                             </span>
                           </div>
                           <!-- /.info-box-content -->
@@ -647,8 +744,8 @@
                           </span>
                           <div class="info-box-content">
                             <span class="info-box-text">Production Database</span>
-                            <span *ngIf="!this.obj.prodDatabase1" class="info-box-number">-</span>
-                            <span class="info-box-number">{{this.obj.prodDatabase1}}</span>
+                            <!-- <span *ngIf="!this.obj.prodDatabase1" class="info-box-number">-</span> -->
+                            <span class="info-box-number">{{this.prodDatabase1}}</span>
                           </div>
                           <!-- /.info-box-content -->
                         </div>
@@ -664,8 +761,8 @@
                           </span>
                           <div class="info-box-content">
                             <span class="info-box-text">Dev Database</span>
-                            <span *ngIf="!this.obj.devDatabase1" class="info-box-number">-</span>
-                            <span class="info-box-number">{{this.obj.devDatabase1}}</span>
+                            <!-- <span *ngIf="!this.obj.devDatabase1" class="info-box-number">-</span> -->
+                            <span class="info-box-number">{{this.devDatabase1}}</span>
                           </div>
                           <!-- /.info-box-content -->
                         </div>
@@ -680,7 +777,7 @@
                           <div class="info-box-content">
                             <span class="info-box-text">Hibernate Cache</span>
                             <span *ngIf="!this.obj.hibernateCache1" class="info-box-number">-</span>
-                            <span class="info-box-number">{{this.obj.hibernateCache1}}</span>
+                            <span class="info-box-number">{{this.hibernateCache1}}</span>
                           </div>
                           <!-- /.info-box-content -->
                         </div>
@@ -698,7 +795,7 @@
                           <div class="info-box-content">
                             <span class="info-box-text">UI Framework</span>
                             <span *ngIf="!this.obj.uiFramework1" class="info-box-number">-</span>
-                            <span class="info-box-number">{{this.obj.uiFramework1}}
+                            <span class="info-box-number">{{this.uiFramework1}}
                             </span>
                           </div>
                           <!-- /.info-box-content -->
@@ -714,7 +811,7 @@
                           <div class="info-box-content">
                             <span class="info-box-text">Build Tool</span>
                             <span *ngIf="!this.obj.buildtool1" class="info-box-number">-</span>
-                            <span class="info-box-number">{{this.obj.buildtool1}}</span>
+                            <span class="info-box-number">{{this.buildtool1}}</span>
                           </div>
                           <!-- /.info-box-content -->
                         </div>
@@ -740,9 +837,8 @@
                       <!-- /.col -->
                     </div>
                     <br>
-                    <a (click)="createFilter(uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )" class="btn btn-primary"
-                      style="width: 15%" data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour"
-                      onclick="sc()">Next
+                    <a class="btn btn-primary" style="width: 15%" data-toggle="collapse" href="#collapseFour"
+                      role="button" aria-expanded="false" aria-controls="collapseFour" onclick="sc()">Next
                       <i class="ml-2 fas fa-arrow-right"></i>
                     </a>
                   </div>
@@ -751,35 +847,108 @@
               <div class="card card-secondary">
                 <div class="card-header">
                   <h4 class="card-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+                      aria-controls="collapseFour">
                       <i class="fa fa-check mr-2"></i> GENERATE APPLICATION
                     </a>
                   </h4>
                 </div>
-                <div id="collapseFour" class="panel-collapse collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div id="collapseFour" class="panel-collapse collapse" aria-labelledby="headingFour"
+                  data-parent="#accordion">
                   <div class="card-body">
+                    <div>
+                      <h5>Deployment details :</h5>
+                      <br>
+
+                      <form #deployForm="ngForm">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Deploy to</label>
+                              <select name="deploymentEnv" [(ngModel)]="deploymentEnv" class="form-control">
+                                <option value="">Select</option>
+                                <option value="Kubernetes">Kubernetes</option>
+                                <option value="OpenShift">OpenShift</option>
+                                <option value="AWS">AWS</option>
+                                <option value="Azure">Azure</option>
+                                <option value="GCP">GCP</option>
+                                <option value="PCF">PCF</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>token</label>
+                              <input name="jenkinsToken" [(ngModel)]="jenkinsToken" type="text" class="form-control"
+                                placeholder="{{deployForm.value.deploymentEnv}} token">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>namespace</label>
+                              <input name="jenkinsK8SNamespace" [(ngModel)]="jenkinsK8SNamespace" type="text"
+                                class="form-control" placeholder="{{deployForm.value.deploymentEnv}} Namespace">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>url</label>
+                              <input name="jenkinsK8SUrl" [(ngModel)]="jenkinsK8SUrl" type="text" class="form-control"
+                                placeholder="{{deployForm.value.deploymentEnv}} URL">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Enable PCF Integration</label>
+                        </div>
+                        <br>
+                      </form>
+                    </div>
+
+
                     Execute the ACE-WD Framework and download the generated project
                     <br>
                     <br>
                     <div class="btn-group">
-                      <button [disabled]="!isValid" type="button" (click)="sendData()" class="btn  btn-primary mr-2">Execute
+                      <button type="button"
+                        (click)="createFilter(deploymentEnv,jenkinsToken, jenkinsK8SUrl,jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )"
+                        class="btn  btn-primary mr-2">Execute
                         <i class="ml-2 fas fa-cog"></i>
                       </button>
-                      <button *ngIf="downloadAvailable" type="button" (click)="download()" class="btn  btn-success mr-2">Download Zip
+                      <button *ngIf="downloadAvailable" type="button" (click)="download()"
+                        class="btn  btn-success mr-2">Download Zip
                         <i class="ml-2 fas fa-download"></i>
                       </button>
                     </div>
-                    <img *ngIf="isLoading$ | async" height="40px" width="40px" src="https://media.giphy.com/media/sSgvbe1m3n93G/giphy.gif">
+                    <img *ngIf="isLoading$ | async" height="40px" width="40px"
+                      src="https://media.giphy.com/media/sSgvbe1m3n93G/giphy.gif">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h4 class="card-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
+                      aria-controls="collapseFive">
+                      <i class="fa fa-check mr-2"></i> DEPLOYMENT
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseFive" class="panel-collapse collapse" aria-labelledby="headingFive"
+                  data-parent="#accordion">
+                  <div class="card-body">
                     <form #gitForm="ngForm">
                       <div>
-                        <hr>
-                        <br>
                         <h5>Repository Details</h5>
                         <br>
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group">
-                                <label>Repository</label>
+                              <label>Repository</label>
                               <select name="gitRepoType" [(ngModel)]="gitRepoType" class="form-control">
                                 <option value="">Select</option>
                                 <option value="Bitbucket">Bitbucket</option>
@@ -790,68 +959,127 @@
                           </div>
                           <div *ngIf="gitRepoType == 'Bitbucket'" class="col-md-3">
                             <div class="form-group">
-                                <label>Project name</label>
-                              <input name="gitProject" [(ngModel)]="gitProject"  type="text" class="form-control" placeholder="project name">
+                              <label>Project name</label>
+                              <input name="gitProject" [(ngModel)]="gitProject" type="text" class="form-control"
+                                placeholder="project name">
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group">
-                                <label>User name</label>
-                              <input name="gitUsername" [(ngModel)]="gitUsername" type="text" class="form-control" placeholder="username">
+                              <label>User name</label>
+                              <input name="gitUsername" [(ngModel)]="gitUsername" type="text" class="form-control"
+                                placeholder="username">
                             </div>
                           </div>
                           <div class="col-md-3">
                             <div class="form-group">
-                                <label>Password</label>
-                              <input name="gitPassword" [(ngModel)]="gitPassword" type="password" class="form-control" placeholder="password">
+                              <label>Password</label>
+                              <input name="gitPassword" [(ngModel)]="gitPassword" type="password" class="form-control"
+                                placeholder="password">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                                <label>URL</label>
-                              <input name="gitUrlDevlite" [(ngModel)]="gitUrlDevlite" type="text" class="form-control" placeholder="url">
+                              <label>URL</label>
+                              <input name="gitUrlDevlite" [(ngModel)]="gitUrlDevlite" type="text" class="form-control"
+                                placeholder="url">
                             </div>
                           </div>
                         </div>
-                        <button [disabled]="!pushToGit" type="button" (click)="push(gitRepoType, gitProject, gitUsername, gitPassword, gitUrlDevlite)" class="btn  btn-primary mr-2">Push
+                        <button [disabled]="!pushToGit" type="button"
+                          (click)="push(gitRepoType, gitProject, gitUsername, gitPassword, gitUrlDevlite)"
+                          class="btn  btn-primary mr-2">Push
                           <i class="ml-2 fab fa-git-alt"></i>
                         </button>
                       </div>
                     </form>
+                    <form #JenkinsForm="ngForm">
+                      <div>
+                        <br>
+                        <h5>Jenkins Details</h5>
+                        <br>
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label>Jenkins URL</label>
+                              <input type="text" name="JenkinsUrl" [(ngModel)]="JenkinsUrl" class="form-control"
+                                placeholder="Jenkins URL ">
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label>Username</label>
+                              <input type="text" name="JenkinsUsername" [(ngModel)]="JenkinsUsername"
+                                class="form-control" placeholder="Username">
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label>Password</label>
+                              <input type="password" name="JenkinsPassword" [(ngModel)]="JenkinsPassword"
+                                class="form-control" placeholder="Password">
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label>Job Name</label>
+                              <input type="text" name="JenkinsJobName" [ngModel]="appName" class="form-control"
+                                class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                        <button [disabled]="!jenkinsDeploy" type="button"
+                          (click)="Jenkins(JenkinsUrl, JenkinsUsername, JenkinsPassword, JenkinsJobName)"
+                          class="btn  btn-primary mr-2">Deploy
+
+                        </button>
+
+
+
+                      </div>
+                    </form>
                   </div>
+
                 </div>
               </div>
+
+
+
               <div class="card card-secondary">
                 <div class="card-header">
                   <h4 class="card-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                      <i class="fa fa-check mr-2"></i> DevLite - DMP INTEGRATION
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false"
+                      aria-controls="collapseSix">
+                      <i class="fas fa-upload mr-2"></i>DevLite - DMP INTEGRATION
                     </a>
                   </h4>
                 </div>
-                <div id="collapseFive" class="panel-collapse collapse" aria-labelledby="headingFive" data-parent="#accordion">
-
-                  <form #devliteForm="ngForm" >
+                <div id="collapseSix" class="panel-collapse collapse" aria-labelledby="headingSix"
+                  data-parent="#accordion">
+                  <form #devliteForm="ngForm">
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Instance Name</label>
-                            <input type="text" name="instanceName" [(ngModel)]="instanceName" class="form-control" placeholder="product-Branch-Release version">
+                            <input type="text" name="instanceName" [(ngModel)]="instanceName" class="form-control"
+                              placeholder="product-Branch-Release version">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Git Code url</label>
-                            <input type="text" name="gitUrl" [(ngModel)]="gitUrl" class="form-control" placeholder="location of code">
+                            <input type="text" name="gitUrl" [(ngModel)]="gitUrl" class="form-control"
+                              placeholder="location of code">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Git Branch</label>
-                            <input type="text" name="branchName" [(ngModel)]="branchName" class="form-control" placeholder="Branch name in Git">
+                            <input type="text" name="branchName" [(ngModel)]="branchName" class="form-control"
+                              placeholder="Branch name in Git">
                           </div>
                         </div>
                       </div>
@@ -871,7 +1099,8 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Language Version</label>
-                            <input type="text" name="lVersion" [(ngModel)]="lVersion" class="form-control" placeholder="version">
+                            <input type="text" name="lVersion" [(ngModel)]="lVersion" class="form-control"
+                              placeholder="version">
                           </div>
                         </div>
                         <div class="col-md-4">
@@ -920,114 +1149,25 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Dev Instance</label>
-                            <input type="text" name="devInstance" [(ngModel)]="devInstance" class="form-control" placeholder="No of VMs/containers required">
+                            <input type="text" name="devInstance" [(ngModel)]="devInstance" class="form-control"
+                              placeholder="No of VMs/containers required">
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
                             <label>Email id</label>
-                            <input type="email" name="emailId" [(ngModel)]="emailId" class="form-control" placeholder="email">
+                            <input type="email" name="emailId" [(ngModel)]="emailId" class="form-control"
+                              placeholder="email">
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="card-footer">
-                      <button type="submit" (click)="createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId)" class="btn btn-primary">Submit</button>
+                      <button type="submit"
+                        (click)="createDevliteData(instanceName, gitUrl, branchName, language, lVersion, appServer, fieldType, serverType, targetCloudType, devInstance, emailId)"
+                        class="btn btn-primary">Submit</button>
                     </div>
                   </form>
-                </div>
-              </div>
-
-
-
-              <div class="card card-secondary">
-                <div class="card-header">
-                  <h4 class="card-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                      <i class="fas fa-upload mr-2"></i> DEPLOYMENT
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseSix" class="panel-collapse collapse" aria-labelledby="headingSix" data-parent="#accordion">
-                  <div class="card-body">
-                    <div>
-                      <h5>Jenkins Details</h5>
-                      <br>
-                      <div class="row">
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Jenkins URL ">
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Jenkins user id">
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Jenkins password">
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Job name">
-                          </div>
-                        </div>
-                      </div>
-                      <button *ngIf="pushToGit" type="button" (click)="push()" class="btn  btn-primary mr-2">Submit
-                        <i class="ml-2 fab fa-git-alt"></i>
-                      </button>
-                    </div>
-                    <div>
-                      <br>
-                      <hr>
-                      <br>
-                      <h5>Deployment details :</h5>
-                      <br>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <form #myForm2="ngForm">
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Deploy to</label>
-                              <select name="deployTo" [(ngModel)]="deployTo" class="form-control">
-                                <option value="">Select</option>
-                                <option value="Kubernetes">Kubernetes</option>
-                                <option value="OpenShift">OpenShift</option>
-                                <option value="AWS">AWS</option>
-                                <option value="Azure">Azure</option>
-                                <option value="GCP">GCP</option>
-                                <option value="PCF">PCF</option>
-                              </select>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{myForm2.value.deployTo}} token">
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{myForm2.value.deployTo}} Namespace">
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{myForm2.value.deployTo}} URL">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Enable PCF Integration</label>
-                      </div>
-                      <br>
-                      <a class="btn bg-gradient-success mx-2" href="#" role="button">Deploy</a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
