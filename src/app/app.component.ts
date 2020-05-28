@@ -342,6 +342,7 @@ export class AppComponent implements OnInit {
 
   }
 
+  isImportFromSwagger = false;
   importFromSwagger = "file";
   swaggerUrl = "";
   //formData;
@@ -362,6 +363,7 @@ export class AppComponent implements OnInit {
   }
 
   createSwagFileData() {
+    this.isImportFromSwagger = true;
     this.obj.swaggergen = true;
     this._appService.sendSwagFileData(this.fileToUpload).subscribe(
       data => {
@@ -375,12 +377,13 @@ export class AppComponent implements OnInit {
   }
 
   createSwagUrlData(swaggerUrl) {
+    this.isImportFromSwagger = true;
     swaggerUrl = swaggerUrl.trim();
     if (!swaggerUrl) {
       this.toast.warning("url should not be empty.");
       return;
     }
-    if (swaggerUrl.endsWith(".json") || swaggerUrl.endsWith(".yml") || swaggerUrl.endsWith(".yam")) {
+    if (swaggerUrl.endsWith(".json") || swaggerUrl.endsWith(".yml") || swaggerUrl.endsWith(".yaml")) {
       this.obj.swaggergen = true;
       this._appService.sendSwagUrlData(swaggerUrl).subscribe(
         data => {
@@ -464,6 +467,10 @@ export class AppComponent implements OnInit {
 
   add(fieldName: String, fieldType: String) {
     fieldName = fieldName.trim();
+    if (!fieldName) {
+      this.toast.warning("field name should not be empty.");
+      return;
+    }
     this.array.push({
       "fieldName": fieldName,
       "fieldType": fieldType
@@ -477,6 +484,11 @@ export class AppComponent implements OnInit {
     this.array = this.array.filter(h => h !== newarray);
     console.log('Field ' + newarray.fieldName + ' deleted !');
     this.toast.warning('Field ' + newarray.fieldName + ' deleted !');
+
+  }
+  delete2(newarray) {
+    this.tempRelationships = this.tempRelationships.filter(h => h !== newarray);
+   this.toast.warning('Relatioship deleted !');
 
   }
   save(entityTableName: string) {
@@ -503,6 +515,15 @@ export class AppComponent implements OnInit {
     otherEntityRelationshipName = otherEntityRelationshipName.trim();
     relationshipType = relationshipType.trim();
     otherEntityName = otherEntityName.trim();
+    if (!otherEntityRelationshipName || !otherEntityName ) {
+      this.toast.warning("Please select at least one relationship.");
+      return;
+    }
+
+    console.log(otherEntityRelationshipName);
+    console.log(otherEntityName);
+    
+    
     this.tempRelationships.push(
       {
         "otherEntityName": otherEntityName,

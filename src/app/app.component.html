@@ -450,6 +450,11 @@
                         class="btn btn-block btn-primary">Save
                         <i class="ml-2 fas fa-save"></i>
                       </button>
+
+
+
+
+
                       <hr>
                     </div>
                     <div *ngIf="RadioOptions == 'radioOption2'">
@@ -509,7 +514,7 @@
                             </select>
                           </div>
                         </div>
-                        
+
                       </div>
 
 
@@ -521,7 +526,7 @@
                         <div class="row">
                           <div class="col-md-6">
 
-                            <div  class="form-group">
+                            <div class="form-group">
                               <label for="exampleInputEmail1">URL</label>
                               <input type="text" name="swaggerUrl" [(ngModel)]="swaggerUrl" class="form-control"
                                 id="url" placeholder="Enter url">
@@ -539,7 +544,7 @@
                       <form *ngIf="importFromSwagger=='file'" #swaggerForm2="ngForm">
                         <div class="row">
                           <div class="col-md-6">
-                            <div  *ngIf="importFromSwagger=='file'" class="form-group">
+                            <div *ngIf="importFromSwagger=='file'" class="form-group">
                               <label for="exampleInputFile">File format supported are ".json" and ".yaml/.yml"</label>
                               <div class="input-group">
                                 <input type="file" (change)="handleFileInput($event.target.files)" id="file">
@@ -548,93 +553,111 @@
                             </div>
                           </div>
                         </div>
-                        <button type="submit" style="width: 15%;" (click)="createSwagFileData()"
-                          class="btn btn-block btn-primary">Import
-                          <i class="ml-2 fas fa-arrow-right"></i>
+                        
+
+
+                        <div class="card-footer">
+                          <button type="submit"  (click)="createSwagFileData()"
+                          class="btn btn-info">Import
                         </button>
+                          <button data-toggle="collapse" href="#collapseThree" class="btn btn-primary ml-3"
+                            aria-expanded="false" aria-controls="collapseThree" onclick="sc()">Next <i
+                              class="ml-2 fas fa-arrow-right"></i></button>
+                        </div>
                       </form>
 
 
-                      
+
+
+
                     </div>
 
 
 
-                   
 
-                    <div *ngIf="RadioOptions != 'radioOption4'"> 
+
+                    <div *ngIf="RadioOptions != 'radioOption4'">
                       <br>
-                    <h5 >Define Relations</h5>
-                    <br>
-                    <div class="row">
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label>Relation Name</label>
-                          <select #otherEntityRelationshipName class="form-control">
-                            <option *ngFor="let i of obj.tablesForUI ">{{i.entityTableName}}</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label>&nbsp;</label>
-                          <select #relationshipType class="form-control">
-                            <option value="one-to-one">one-to-one</option>
-                            <option value="one-to-many">one-to-many</option>
-                            <option value="many-to-one">many-to-one</option>
-                            <option value="many-to-many">many-to-many</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label>Relation Name</label>
-                          <select #otherEntityName class="form-control">
-                            <option *ngFor="let i of obj.tablesForUI">{{i.entityTableName}}</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-3">
-                        <label>&nbsp;</label>
-                        <button
-                          (click)="addRelationShip(otherEntityRelationshipName.value,relationshipType.value,otherEntityName.value) ; otherEntityRelationshipName.value='';relationshipType.value='one-to-one';otherEntityName.value=''"
-                          type="button" class="btn btn-block bg-gradient-success w-25">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12">
-                        <div class="card">
-                          <!-- /.card-header -->
-                          <div class="card-body table-responsive p-0">
-                            <table class="table ">
-                              <thead>
-                                <th>Entity</th>
-                                <th>Mapping Type</th>
-                                <th>Entity</th>
-                              </thead>
-                              <tbody>
-                                <tr *ngFor="let i of tempRelationships">
-                                  <td>{{(i).otherEntityRelationshipName}}</td>
-                                  <td>{{(i).relationshipType}}</td>
-                                  <td>{{(i).otherEntityName}}</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                      <h5>Define Relations</h5>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Relation Name</label>
+                            <select #otherEntityRelationshipName class="form-control">
+                              <option *ngFor="let i of obj.tablesForUI ">{{i.entityTableName}}</option>
+                            </select>
                           </div>
-                          <!-- /.card-body -->
                         </div>
-                        <!-- /.card -->
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>&nbsp;</label>
+                            <select #relationshipType class="form-control">
+                              <option value="one-to-one">one-to-one</option>
+                              <option value="one-to-many">one-to-many</option>
+                              <option value="many-to-one">many-to-one</option>
+                              <option value="many-to-many">many-to-many</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Relation Name</label>
+                            <select #otherEntityName class="form-control">
+                              <option *ngFor="let i of obj.tablesForUI">{{i.entityTableName}}</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <label>&nbsp;</label>
+                          <button
+                            (click)="addRelationShip(otherEntityRelationshipName.value,relationshipType.value,otherEntityName.value) ; otherEntityRelationshipName.value='';relationshipType.value='one-to-one';otherEntityName.value=''"
+                            type="button" class="btn btn-block bg-gradient-success w-25">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
                       </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="card">
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                              <table class="table ">
+                                <thead>
+                                  <th>Entity</th>
+                                  <th>Mapping Type</th>
+                                  <th>Entity</th>
+                                  <th></th>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let i of tempRelationships">
+                                    <td>{{(i).otherEntityRelationshipName}}</td>
+                                    <td>{{(i).relationshipType}}</td>
+                                    <td>{{(i).otherEntityName}}</td>
+                                    <td>
+                                      <button (click)="delete2(i)" type="button" class="btn btn-danger w-25">
+                                        <i class="fa fa-trash"></i>
+                                      </button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <!-- /.card-body -->
+                          </div>
+                          <!-- /.card -->
+                        </div>
+                      </div>
+
+                      <div class="card-footer">
+                        <button data-toggle="collapse" href="#collapseThree" class="btn btn-primary"
+                          aria-expanded="false" aria-controls="collapseThree" onclick="sc()">Next <i
+                            class="ml-2 fas fa-arrow-right"></i></button>
+                      </div>
+
                     </div>
-                    <a onclick="sc()" class="btn btn-primary" style="width: 15%;" data-toggle="collapse"
-                      href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">Save
-                      <i class="fas fa-save ml-2"></i>
-                    </a></div>
 
-
-
+                    <br>
 
 
                   </div>
@@ -783,6 +806,22 @@
                         </div>
                         <!-- /.info-box -->
                       </div>
+
+
+                      <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                          <span class="info-box-icon bg-warning elevation-1">
+                            <i class="fas fa-cog"></i>
+                          </span>
+                          <div class="info-box-content">
+                            <span class="info-box-text">Import from Swagger</span>
+                            <span class="info-box-number">{{isImportFromSwagger}}</span>
+                            
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                      </div>
                     </div>
                     <br>
                     <h5 class="mb-2">Build & Deployment</h5>
@@ -913,7 +952,7 @@
                     <br>
                     <br>
                     <div class="btn-group">
-                      <button type="button"
+                      <button [disabled]="!deploymentEnv" type="button"
                         (click)="createFilter(deploymentEnv,jenkinsToken, jenkinsK8SUrl,jenkinsK8SNamespace, uiFramework1, appName, appType1, defaultPackage, authType1, defaultPort, messagingAPI1 )"
                         class="btn  btn-primary mr-2">Execute
                         <i class="ml-2 fas fa-cog"></i>
